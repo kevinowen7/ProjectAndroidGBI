@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dr_persembahan"
+        android:title="@string/persembahan" />
+
+    <item
+        android:id="@+id/dr_perpuluhan"
+        android:title="@string/perpuluhan" />
+
+    <item
+        android:id="@+id/dr_pembangunan"
+        android:title="@string/persembahan_pembangunan" />
+
+    <item
+        android:id="@+id/dr_misi"
+        android:title="@string/persembahan_misi" />
+
+    <item
+        android:id="@+id/dr_pembangunan_tk"
+        android:title="@string/pembangunan_tk_harapan" />
+</menu>

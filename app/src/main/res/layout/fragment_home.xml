@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:id="@+id/mainContainer"
+    tools:context=".fragment.HomeFragment">
+
+    <TextView
+        android:id="@+id/text_welcome"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/welcome"
+        android:layout_marginBottom="@dimen/activity_margin_medium"
+        android:textAlignment="center"
+        android:textSize="@dimen/welcome_title"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:layout_marginTop="@dimen/activity_margin_medium"
+        />
+
+
+    <ImageView
+        android:id="@+id/imageCarousel"
+        android:layout_width="match_parent"
+        android:layout_height="170dp"
+        android:layout_centerInParent="true"
+        android:layout_marginBottom="@dimen/activity_margin_medium"
+        android:layout_below="@+id/text_welcome"
+        android:src="@color/white"
+        tools:ignore="ContentDescription" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/imageCarousel"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:layout_gravity="center"
+            android:layout_marginStart="@dimen/activity_margin_large"
+            android:orientation="vertical">
+
+            <ImageView
+                android:id="@+id/menu_video"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingBottom="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:layout_height="wrap_content"
+                android:background="@drawable/button_edit"
+                android:src="@mipmap/video"
+                tools:ignore="ContentDescription" />
+
+            <ImageView
+                android:id="@+id/menu_event"
+                android:layout_marginTop="@dimen/activity_margin_medium"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingBottom="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:background="@drawable/button_edit"
+                android:src="@mipmap/event"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_weight="1"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginEnd="@dimen/activity_margin_large"
+            android:orientation="vertical">
+            <ImageView
+                android:id="@+id/menu_podcast"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:background="@drawable/button_edit"
+                android:src="@mipmap/podcast"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingBottom="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:layout_height="wrap_content"
+                tools:ignore="ContentDescription" />
+
+
+
+
+            <ImageView
+                android:id="@+id/menu_findus"
+                android:layout_width="wrap_content"
+                android:layout_gravity="center"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingBottom="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:layout_marginTop="@dimen/activity_margin_medium"
+                android:background="@drawable/button_edit"
+                android:src="@mipmap/findus"
+                android:layout_height="wrap_content"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+
+
+
+</RelativeLayout>

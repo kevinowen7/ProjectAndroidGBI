@@ -1,0 +1,229 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".fragment.GivingFragment">
+
+    <Button
+        android:id="@+id/history"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_card"
+        android:text="@string/my_history"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/sub_form_value"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:paddingTop="@dimen/activity_margin_small"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:drawableEnd="@drawable/ic_history_black_24dp"
+        android:paddingBottom="@dimen/activity_margin_small"
+        android:paddingEnd="@dimen/activity_margin_small_medium"
+        android:layout_alignParentEnd="true"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        tools:ignore="RelativeOverlap" />
+
+    <TextView
+        android:id="@+id/tanggal_giving"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_above="@+id/text_persembahan"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:background="@drawable/rounded_form"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:layout_marginTop="@dimen/activity_margin_small"
+        android:hint="@string/tanggal_persembahan"
+        android:drawableStart="@drawable/ic_birthdate"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:maxLength="16"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:paddingEnd="@dimen/activity_margin_large"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:textSize="@dimen/sub_form_value"
+        android:textStyle="bold"
+        android:importantForAutofill="no" />
+
+    <TextView
+        android:id="@+id/text_persembahan"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:layout_marginBottom="@dimen/activity_margin_small"
+        android:gravity="center"
+        android:text="@string/jumlah_persembahan"
+        android:textColor="@color/black_low"
+        android:layout_above="@+id/jmlh_persembahan"
+        android:textSize="@dimen/sub_form"
+        android:textStyle="bold" />
+
+    <EditText
+        android:id="@+id/jmlh_persembahan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/card_jumlah_persembahan"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:background="@drawable/rounded_form"
+        android:inputType="number"
+        android:layout_centerInParent="true"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:layout_marginTop="@dimen/activity_margin_small"
+        android:hint="@string/_0"
+        android:maxLength="16"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:paddingEnd="@dimen/activity_margin_large"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:textSize="@dimen/sub_form_value"
+        android:textStyle="bold"
+        android:importantForAutofill="no" />
+
+    <LinearLayout
+        android:id="@+id/card_jumlah_persembahan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="@dimen/activity_margin_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_centerInParent="true"
+        android:orientation="horizontal"
+        android:baselineAligned="false">
+
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            tools:ignore="UselessParent">
+
+            <Button
+                android:id="@+id/jmlh_sepuluh"
+                android:textAllCaps="false"
+                android:layout_gravity="center"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/black_card_very_transparant"
+                android:text="@string/rp_10_000"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:textSize="@dimen/sub_form_small"
+                android:paddingTop="@dimen/activity_margin_small"
+                android:paddingStart="@dimen/activity_margin_medium"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:paddingBottom="@dimen/activity_margin_small"
+                android:paddingEnd="@dimen/activity_margin_medium"
+                />
+
+        </LinearLayout>
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical">
+            <Button
+                android:id="@+id/jmlh_lima_puluh"
+                android:textAllCaps="false"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/black_card_very_transparant"
+                android:text="@string/rp_50_000"
+                android:textColor="@color/white"
+                android:textStyle="bold"
+                android:layout_gravity="center"
+                android:textSize="@dimen/sub_form_small"
+                android:paddingTop="@dimen/activity_margin_small"
+                android:paddingStart="@dimen/activity_margin_medium"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:paddingBottom="@dimen/activity_margin_small"
+                android:paddingEnd="@dimen/activity_margin_medium"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+
+
+
+    <TextView
+        android:id="@+id/jenis_persembahan_text"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:gravity="center"
+        android:text="@string/jenis_persembahan"
+        android:textColor="@color/black_low"
+        android:layout_below="@+id/card_jumlah_persembahan"
+        android:textSize="@dimen/sub_form"
+        android:textStyle="bold" />
+
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/jenis_persembahan_dd"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/jenis_persembahan_text"
+
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:background="@drawable/rounded_form"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:layout_marginTop="@dimen/activity_margin_small"
+        android:hint="@string/pilih_jenis_persembahan"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:maxLength="16"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:paddingEnd="@dimen/activity_margin_large"
+        android:textSize="@dimen/sub_form_value"
+        android:textStyle="bold"
+        android:importantForAutofill="no"
+        >
+
+        <EditText
+            android:id="@+id/jenis_persembahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:importantForAutofill="no"
+            android:inputType="textNoSuggestions"
+            tools:ignore="LabelFor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit_persembahan"
+        android:textAllCaps="false"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/black_card"
+        android:text="@string/masukkan"
+        android:textColor="@color/white"
+        android:textStyle="bold"
+        android:textSize="@dimen/sub_form_small"
+        android:layout_marginTop="@dimen/activity_margin_large"
+        android:paddingTop="@dimen/activity_margin_small"
+        android:paddingStart="@dimen/activity_margin_medium_large"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:paddingBottom="@dimen/activity_margin_small"
+        android:paddingEnd="@dimen/activity_margin_medium_large"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/jenis_persembahan_dd"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"/>
+
+
+
+</RelativeLayout>

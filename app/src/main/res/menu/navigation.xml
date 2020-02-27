@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/home"
+        android:icon="@drawable/ic_home"
+        android:title="@string/home" />
+
+    <item
+        android:id="@+id/calendar"
+        android:icon="@drawable/ic_kalender"
+        android:title="@string/calendar" />
+
+    <item
+        android:id="@+id/service"
+        android:icon="@drawable/ic_service"
+        android:title="@string/service" />
+
+    <item
+        android:id="@+id/giving"
+        android:icon="@drawable/ic_giving"
+        android:title="@string/giving" />
+
+    <item
+        android:id="@+id/my_account"
+        android:icon="@drawable/ic_account"
+        android:title="@string/my_account" />
+</menu>

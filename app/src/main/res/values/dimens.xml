@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_horizontal_margin">16dp</dimen>
+    <dimen name="activity_margin_large">32dp</dimen>
+    <dimen name="activity_margin_big_large">48dp</dimen>
+    <dimen name="activity_margin_medium_large">24dp</dimen>
+    <dimen name="activity_margin_medium">12dp</dimen>
+    <dimen name="activity_margin_small_medium">8dp</dimen>
+    <dimen name="activity_margin_small">4dp</dimen>
+    <dimen name="active_margin_very_large">64dp</dimen>
+    <dimen name="active_margin_extra_large">84dp</dimen>
+    <dimen name="active_margin_xxl_large">112dp</dimen>
+    <dimen name="rounded_edit_text">15dp</dimen>
+    <dimen name="welcome_title">28sp</dimen>
+    <dimen name="sub_title">32sp</dimen>
+    <dimen name="sub_form">24sp</dimen>
+    <dimen name="sub_form_small">20sp</dimen>
+    <dimen name="sub_form_value">16sp</dimen>
+    <dimen name="onboarding_title">20sp</dimen>
+    <dimen name="onboarding_desc">15sp</dimen>
+    <dimen name="label_font_size">16sp</dimen>
+    <dimen name="label_info_font_size">13sp</dimen>
+    <dimen name="sixteen_font_size">16sp</dimen>
+    <dimen name="pricestock_font_size">13sp</dimen>
+
+    <dimen name="action_bar_title">18sp</dimen>
+    <dimen name="image_dimen">40dp</dimen>
+    <dimen name="button_rounded_size">30dp</dimen>
+    <dimen name="activity_margin_medium_10dp">10dp</dimen>
+    <dimen name="button_rounded_size_11dp">11dp</dimen>
+
+    <dimen name="loading_bar">11dp</dimen>
+    <dimen name="loading_back">10dp</dimen>
+
+    <dimen name="show_password_padding">6dp</dimen>
+    <dimen name="forgot_password">200dp</dimen>
+</resources>
