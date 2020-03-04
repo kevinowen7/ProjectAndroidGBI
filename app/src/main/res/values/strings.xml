@@ -46,4 +46,8 @@
     <string name="persembahan_misi">Persembahan Misi</string>
     <string name="pembangunan_tk_harapan">Pembangunan TK Harapan</string>
     <string name="rp_100_000">Rp. 100.000</string>
+    <string name="bulan">Bulan</string>
+    <string name="pilih_bulan">Pilih Bulan</string>
+    <string name="pilih_bulan_dan_tahun">Pilih Bulan dan Tahun</string>
+    <string name="bulan_dan_tahun">Bulan dan Tahun</string>
 </resources>

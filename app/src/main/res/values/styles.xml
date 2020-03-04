@@ -51,6 +51,12 @@
         <item name="android:datePickerMode">calendar</item>
     </style>
 
+    <style name="Divider">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">10dp</item>
+        <item name="android:background">@color/grey</item>
+    </style>
+
 
 
 </resources>

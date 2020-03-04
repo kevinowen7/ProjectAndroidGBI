@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".activity.MyHistoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/title_my_history"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        tools:ignore="UseCompoundDrawables">
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/activity_margin_medium"
+            android:background="@drawable/ic_return"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/my_history"
+            android:textStyle="bold"
+            android:textSize="@dimen/sub_title"
+            android:textAllCaps="true"
+            android:textColor="@color/black_low"
+            tools:ignore="RelativeOverlap" />
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/date_text"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_my_history"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:gravity="center"
+        android:text="@string/bulan_dan_tahun"
+        android:textColor="@color/black_low"
+        android:textSize="@dimen/sub_form_small"/>
+
+    <TextView
+        android:id="@+id/date_history"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/date_text"
+        android:textColor="@color/colorPrimaryDark"
+        android:layout_marginStart="@dimen/activity_margin_large"
+        android:layout_marginEnd="@dimen/activity_margin_large"
+        android:background="@drawable/rounded_form"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:layout_marginTop="@dimen/activity_margin_small"
+        android:hint="@string/pilih_bulan_dan_tahun"
+        android:drawableStart="@drawable/ic_birthdate"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:maxLength="16"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:paddingEnd="@dimen/activity_margin_large"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:textSize="@dimen/sub_form_value"
+        android:textStyle="bold"
+        android:importantForAutofill="no" />
+
+    <View
+        android:id="@+id/divider_top"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginTop="@dimen/activity_margin_large"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:layout_below="@+id/date_history"
+        android:background="@color/grey" />
+
+    <LinearLayout
+        android:id="@+id/history_data"
+        android:layout_width="match_parent"
+        android:layout_below="@+id/divider_top"
+        android:layout_marginTop="@dimen/activity_margin_small_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/divider_bottom">
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/history_recycle"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="visible"/>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/divider_bottom"
+        android:layout_width="match_parent"
+        android:layout_height="5dp"
+        android:layout_marginBottom="@dimen/activity_margin_medium"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/activity_margin_small_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:background="@color/grey" />
+
+
+</RelativeLayout>
