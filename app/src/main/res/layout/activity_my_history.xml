@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@drawable/bg_sub_menu"
     tools:context=".activity.MyHistoryActivity">
 
@@ -109,6 +110,27 @@
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_marginEnd="@dimen/activity_margin_medium_large"
         android:background="@color/brown_my_history" />
+
+    <ImageView
+        android:id="@+id/loadingBackround"
+        android:translationZ="@dimen/loading_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/loading_background"
+        tools:ignore="ContentDescription"
+        android:focusable="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:translationZ="@dimen/loading_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/loading_gradient"
+        android:layout_height="wrap_content" />
 
 
 </RelativeLayout>

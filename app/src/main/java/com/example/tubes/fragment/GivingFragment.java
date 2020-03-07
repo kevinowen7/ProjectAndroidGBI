@@ -186,7 +186,7 @@ public class GivingFragment extends Fragment {
 
     private ArrayList<HashMap<String, String>> RequestAddPersembahan(String username, String date,String jumlah,String jenis) {
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
-
+        jumlah = jumlah.replaceAll("\\.", "");
         AddPersembahanCallback persembahan_req = new AddPersembahanCallback(getActivity());
 
         try {

@@ -197,7 +197,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<HashMap<String, String>> RequestLoginUser(String username, String pass) {
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
 
-
         LoginUserCallback login_req = new LoginUserCallback(MainActivity.this);
         //Log.d("CEKIDBOOK",id_book);
         try {
