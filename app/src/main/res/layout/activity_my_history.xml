@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/bg_sub_menu"
     tools:context=".activity.MyHistoryActivity">
 
     <LinearLayout
@@ -15,11 +16,12 @@
         android:layout_height="wrap_content"
         tools:ignore="UseCompoundDrawables">
         <ImageView
+            android:id="@+id/back_button"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
             android:layout_marginEnd="@dimen/activity_margin_medium"
-            android:background="@drawable/ic_return"
+            android:src="@drawable/button_back"
             tools:ignore="ContentDescription" />
         <TextView
             android:layout_width="wrap_content"
@@ -28,7 +30,7 @@
             android:textStyle="bold"
             android:textSize="@dimen/sub_title"
             android:textAllCaps="true"
-            android:textColor="@color/black_low"
+            android:textColor="@color/brown_my_history"
             tools:ignore="RelativeOverlap" />
     </LinearLayout>
 
@@ -42,8 +44,9 @@
         android:layout_marginTop="@dimen/activity_margin_medium_large"
         android:gravity="center"
         android:text="@string/bulan_dan_tahun"
-        android:textColor="@color/black_low"
-        android:textSize="@dimen/sub_form_small"/>
+        android:textStyle="bold"
+        android:textColor="@color/brown_my_history"
+        android:textSize="@dimen/sub_form_value"/>
 
     <TextView
         android:id="@+id/date_history"
@@ -71,12 +74,12 @@
     <View
         android:id="@+id/divider_top"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="1dp"
         android:layout_marginTop="@dimen/activity_margin_large"
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_marginEnd="@dimen/activity_margin_medium_large"
         android:layout_below="@+id/date_history"
-        android:background="@color/grey" />
+        android:background="@color/brown_my_history" />
 
     <LinearLayout
         android:id="@+id/history_data"
@@ -99,13 +102,13 @@
     <View
         android:id="@+id/divider_bottom"
         android:layout_width="match_parent"
-        android:layout_height="5dp"
+        android:layout_height="1dp"
         android:layout_marginBottom="@dimen/activity_margin_medium"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/activity_margin_small_medium"
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_marginEnd="@dimen/activity_margin_medium_large"
-        android:background="@color/grey" />
+        android:background="@color/brown_my_history" />
 
 
 </RelativeLayout>
