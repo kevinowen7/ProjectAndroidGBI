@@ -74,7 +74,7 @@
     <View
         android:id="@+id/divider_top"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="3dp"
         android:layout_marginTop="@dimen/activity_margin_large"
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_marginEnd="@dimen/activity_margin_medium_large"
@@ -102,7 +102,7 @@
     <View
         android:id="@+id/divider_bottom"
         android:layout_width="match_parent"
-        android:layout_height="1dp"
+        android:layout_height="3dp"
         android:layout_marginBottom="@dimen/activity_margin_medium"
         android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/activity_margin_small_medium"

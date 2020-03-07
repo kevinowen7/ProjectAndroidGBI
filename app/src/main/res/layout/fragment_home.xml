@@ -3,6 +3,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/mainContainer"
     tools:context=".fragment.HomeFragment">
 
@@ -45,10 +46,10 @@
             android:layout_gravity="center"
             android:layout_marginStart="@dimen/activity_margin_large"
             android:orientation="vertical">
-
             <ImageView
                 android:id="@+id/menu_video"
                 android:layout_width="wrap_content"
+                android:elevation="@dimen/elevation"
                 android:layout_gravity="center"
                 android:paddingStart="@dimen/activity_margin_small_medium"
                 android:paddingTop="@dimen/activity_margin_small_medium"
@@ -59,12 +60,14 @@
                 android:src="@mipmap/video"
                 tools:ignore="ContentDescription" />
 
+
             <ImageView
                 android:id="@+id/menu_event"
                 android:layout_marginTop="@dimen/activity_margin_medium"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
+                android:elevation="@dimen/elevation"
                 android:paddingStart="@dimen/activity_margin_small_medium"
                 android:paddingTop="@dimen/activity_margin_small_medium"
                 android:paddingBottom="@dimen/activity_margin_small_medium"
@@ -83,6 +86,7 @@
             <ImageView
                 android:id="@+id/menu_podcast"
                 android:layout_width="wrap_content"
+                android:elevation="@dimen/elevation"
                 android:layout_gravity="center"
                 android:background="@drawable/button_edit"
                 android:src="@mipmap/podcast"
@@ -100,6 +104,7 @@
                 android:id="@+id/menu_findus"
                 android:layout_width="wrap_content"
                 android:layout_gravity="center"
+                android:elevation="@dimen/elevation"
                 android:paddingStart="@dimen/activity_margin_small_medium"
                 android:paddingTop="@dimen/activity_margin_small_medium"
                 android:paddingBottom="@dimen/activity_margin_small_medium"

@@ -35,4 +35,5 @@
 
     <dimen name="show_password_padding">6dp</dimen>
     <dimen name="forgot_password">200dp</dimen>
+    <dimen name="elevation">15dp</dimen>
 </resources>
