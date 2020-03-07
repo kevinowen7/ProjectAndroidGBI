@@ -2,27 +2,30 @@
 
     <LinearLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/activity_margin_medium"
+        android:layout_marginBottom="@dimen/activity_margin_medium_large"
         android:orientation="horizontal">
 
         <TextView
             android:id="@+id/list_history_date"
             android:layout_width="0dp"
-            android:layout_weight="1"
-            android:gravity="center"
+            android:layout_weight="1.1"
+            android:gravity="start"
             android:textColor="@color/brown_my_history"
+            android:paddingStart="@dimen/activity_margin_small_medium"
             android:textStyle="bold"
-            android:textSize="@dimen/sub_form_value"
-            android:layout_height="wrap_content" />
+            android:textSize="@dimen/my_history_value"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlSymmetry" />
 
         <TextView
             android:id="@+id/list_history_jenis"
             android:layout_width="0dp"
             android:gravity="center"
             android:textColor="@color/brown_my_history"
-            android:textSize="@dimen/sub_form_value"
+            android:textSize="@dimen/my_history_value"
             android:textStyle="bold"
             android:layout_weight="1"
             android:layout_height="wrap_content" />
@@ -32,9 +35,11 @@
             android:layout_width="0dp"
             android:textColor="@color/brown_my_history"
             android:textStyle="bold"
-            android:textSize="@dimen/sub_form_value"
+            android:textSize="@dimen/my_history_value"
+            android:paddingEnd="@dimen/activity_margin_small_medium"
             android:layout_weight="1"
-            android:gravity="center"
-            android:layout_height="wrap_content" />
+            android:gravity="end"
+            android:layout_height="wrap_content"
+            tools:ignore="RtlSymmetry" />
 
     </LinearLayout>

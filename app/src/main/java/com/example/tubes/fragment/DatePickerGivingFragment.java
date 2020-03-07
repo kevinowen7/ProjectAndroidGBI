@@ -3,20 +3,22 @@ package com.example.tubes.fragment;
 import android.annotation.SuppressLint;
 import android.app.AlertDialog;
 import android.app.DatePickerDialog;
-import android.app.Dialog;
 import android.app.DialogFragment;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.DatePicker;
+import android.app.Fragment;
 import android.widget.TextView;
+import android.widget.DatePicker;
+import android.app.Dialog;
 
-import com.example.tubes.Model.ConvertDate;
 import com.example.tubes.R;
 
-import java.lang.reflect.Field;
 import java.util.Calendar;
 
-public class DatePickerMYFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener{
+/**
+ * A simple {@link Fragment} subclass.
+ */
+public class DatePickerGivingFragment extends DialogFragment implements DatePickerDialog.OnDateSetListener {
+
     @Override
     public Dialog onCreateDialog(Bundle savedInstanceState){
         //Use the current date as the default date in the date picker
@@ -41,24 +43,7 @@ public class DatePickerMYFragment extends DialogFragment implements DatePickerDi
         //return new DatePickerDialog(getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_DARK,this, year, month, day);
         //return new DatePickerDialog(getActivity(), AlertDialog.THEME_DEVICE_DEFAULT_LIGHT, this, year, month, day);
         //return new DatePickerDialog(getActivity(), AlertDialog.THEME_HOLO_DARK, this, year, month, day);
-        DatePickerDialog dpd =  new DatePickerDialog(getActivity(), AlertDialog.THEME_HOLO_LIGHT, this, year, month, day){
-            //DatePickerDialog dpd = new DatePickerDialog(getActivity(),AlertDialog.THEME_HOLO_DARK,this,year, month, day){
-            //DatePickerDialog dpd = new DatePickerDialog(getActivity(),AlertDialog.THEME_HOLO_LIGHT,this,year, month, day){
-            // DatePickerDialog dpd = new DatePickerDialog(getActivity(), AlertDialog.THEME_TRADITIONAL,this,year, month, day){
-            @Override
-            protected void onCreate(Bundle savedInstanceState)
-            {
-                super.onCreate(savedInstanceState);
-                int day = getContext().getResources().getIdentifier("android:id/day", null, null);
-                if(day != 0){
-                    View dayPicker = findViewById(day);
-                    if(dayPicker != null){
-                        //Set Day view visibility Off/Gone
-                        dayPicker.setVisibility(View.GONE);
-                    }
-                }
-            }
-        };
+        DatePickerDialog dpd = new DatePickerDialog(getActivity(), AlertDialog.THEME_HOLO_LIGHT, this, year, month, day);
         dpd.getDatePicker().setMaxDate(System.currentTimeMillis());
         return dpd;
     }
@@ -70,8 +55,19 @@ public class DatePickerMYFragment extends DialogFragment implements DatePickerDi
             monthString ="0"+(month+1);
         }
 
-        TextView tv = (TextView) getActivity().findViewById(R.id.date_history);
-        tv.setText(ConvertDate.reformatDateToString(monthString+"-"+year));
+        String dayString = String.valueOf(day);
+        if (day<11){
+            dayString ="0"+(day);
+        }
 
+        //Do something with the date chosen by the user
+        try {
+            TextView tv = (TextView) getActivity().findViewById(R.id.tanggal_giving);
+            String stringOfDate = year + "-" + monthString + "-" + dayString;
+            tv.setText(stringOfDate);
+        } catch (NullPointerException ignored){
+
+        }
     }
 }
+

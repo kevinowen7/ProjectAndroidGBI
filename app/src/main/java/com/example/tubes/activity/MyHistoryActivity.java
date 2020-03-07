@@ -8,6 +8,8 @@ import android.app.DialogFragment;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -18,6 +20,8 @@ import android.widget.TextView;
 import com.example.tubes.Callback.LoginUserCallback;
 import com.example.tubes.Callback.ShowPersembahanCallback;
 import com.example.tubes.Model.AlertCustom;
+import com.example.tubes.Model.ConvertDate;
+import com.example.tubes.Model.FormatPrice;
 import com.example.tubes.Model.MyHistory;
 import com.example.tubes.R;
 import com.example.tubes.adapter.MyHistoryAdapter;
@@ -25,7 +29,9 @@ import com.example.tubes.fragment.DatePickerFragment;
 import com.example.tubes.fragment.DatePickerMYFragment;
 
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Objects;
 
 public class MyHistoryActivity extends AppCompatActivity {
@@ -37,6 +43,7 @@ public class MyHistoryActivity extends AppCompatActivity {
     private ImageView mBack;
     private SharedPreferences sp;
     private TextView mDate;
+    private TextView mTotalPersembahan;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -52,15 +59,21 @@ public class MyHistoryActivity extends AppCompatActivity {
         mLoading = findViewById(R.id.loadingBackround);
         mBack = findViewById(R.id.back_button);
         mDate = findViewById(R.id.date_history);
+        mTotalPersembahan = findViewById(R.id.total_persembahan);
 
+        Calendar calendar = Calendar.getInstance(Locale.getDefault());
+
+        //set default date
+        mDate.setText(ConvertDate.reformatDateToString((calendar.get(Calendar.MONTH)+1)+"-"+calendar.get(Calendar.YEAR)));
         //add data + recycle listener
-        addDataHistory();
+        addDataHistory(calendar.get(Calendar.YEAR)+"-"+(calendar.get(Calendar.MONTH)+1));
 
         //listener button
         backListener();
 
         //listener date
         datePickerListener();
+
 
     }
 
@@ -70,6 +83,25 @@ public class MyHistoryActivity extends AppCompatActivity {
             public void onClick(View v) {
                 DatePickerMYFragment newFragment = new DatePickerMYFragment();
                 newFragment.show(getFragmentManager(),"Date Picker");
+            }
+        });
+
+        mDate.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence s, int start, int before, int count) {
+                String choDate = mDate.getText().toString();
+                Log.d("changeDate", ConvertDate.reformatDateToInt(choDate));
+                addDataHistory(ConvertDate.reformatDateToInt(choDate));
+            }
+
+            @Override
+            public void afterTextChanged(Editable s) {
+
             }
         });
     }
@@ -119,7 +151,7 @@ public class MyHistoryActivity extends AppCompatActivity {
         });
     }
 
-    private void addDataHistory() {
+    private void addDataHistory(final String dataDate) {
         showLoading();
         historyArrayList = new ArrayList<>();
 
@@ -134,14 +166,24 @@ public class MyHistoryActivity extends AppCompatActivity {
 
 
                 if (Objects.equals(reqShow.get(0).get("success"), "1")) {
+                    int jumlahPersemabahan=0;
                     for (int i=1;i<reqShow.size();i++){
-                        //get data
-                        historyArrayList.add(new MyHistory(reqShow.get(i).get("tanggal"),reqShow.get(i).get("jenis_persembahan"),Integer.parseInt(Objects.requireNonNull(reqShow.get(i).get("jumlah_persembahan")))));
-                    }
+                        //validasi Tanggal yang di minta
+                        String[] date = Objects.requireNonNull(reqShow.get(i).get("tanggal")).split("-");
+                        String[] reqDate = dataDate.split("-");
 
+                        if (date[0].equals(reqDate[0]) && String.valueOf(Integer.parseInt(date[1])).equals(String.valueOf(Integer.parseInt(reqDate[1])))){
+                            //get data
+                            historyArrayList.add(new MyHistory(ConvertDate.reformatDateToString(Objects.requireNonNull(reqShow.get(i).get("tanggal"))),reqShow.get(i).get("jenis_persembahan"),Integer.parseInt(Objects.requireNonNull(reqShow.get(i).get("jumlah_persembahan")))));
+                            jumlahPersemabahan = jumlahPersemabahan+Integer.parseInt(Objects.requireNonNull(reqShow.get(i).get("jumlah_persembahan")));
+                        }
+                    }
+                    final int jumlahFix = jumlahPersemabahan;
                     MyHistoryActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
+                            //set total persembahan
+                            mTotalPersembahan.setText("Total :  "+FormatPrice.addDots(String.valueOf(jumlahFix)));
                             //recycle view listerner
                             recycleHistoryListener();
                             //hide loading

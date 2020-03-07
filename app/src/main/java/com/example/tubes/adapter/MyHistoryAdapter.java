@@ -5,6 +5,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.TextView;
 
+import com.example.tubes.Model.FormatPrice;
 import com.example.tubes.Model.MyHistory;
 import com.example.tubes.R;
 
@@ -31,7 +32,7 @@ public class MyHistoryAdapter extends RecyclerView.Adapter<MyHistoryAdapter.MyHi
     public void onBindViewHolder(MyHistoryViewHolder holder, int position) {
         holder.txtTanggal.setText(dataList.get(position).getTanggal());
         holder.txtJenis.setText(dataList.get(position).getJenis());
-        holder.txtJumlah.setText(String.valueOf(dataList.get(position).getJumlah()));
+        holder.txtJumlah.setText(FormatPrice.addDots(String.valueOf(dataList.get(position).getJumlah())));
     }
 
     @Override

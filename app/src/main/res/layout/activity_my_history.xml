@@ -103,13 +103,28 @@
     <View
         android:id="@+id/divider_bottom"
         android:layout_width="match_parent"
+        android:layout_above="@id/total_persembahan"
         android:layout_height="3dp"
-        android:layout_marginBottom="@dimen/activity_margin_medium"
-        android:layout_alignParentBottom="true"
         android:layout_marginTop="@dimen/activity_margin_small_medium"
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_marginEnd="@dimen/activity_margin_medium_large"
         android:background="@color/brown_my_history" />
+
+    <TextView
+        android:id="@+id/total_persembahan"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:layout_marginTop="@dimen/activity_margin_medium"
+        android:layout_marginBottom="@dimen/activity_margin_medium"
+        android:paddingEnd="@dimen/activity_margin_small_medium"
+        android:layout_alignParentBottom="true"
+        android:gravity="end"
+        android:textStyle="bold"
+        android:textColor="@color/brown_my_history"
+        android:textSize="@dimen/sub_form_value"/>
+
 
     <ImageView
         android:id="@+id/loadingBackround"

@@ -67,12 +67,5 @@ public class DatePickerFragment extends DialogFragment implements DatePickerDial
         } catch (NullPointerException ignored){
 
         }
-        try {
-            TextView tv = (TextView) getActivity().findViewById(R.id.tanggal_giving);
-            String stringOfDate = year + "-" + monthString + "-" + dayString;
-            tv.setText(stringOfDate);
-        } catch (NullPointerException ignored){
-
-        }
     }
 }

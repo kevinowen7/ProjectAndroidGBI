@@ -231,7 +231,7 @@ public class GivingFragment extends Fragment {
         mDate.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                DialogFragment newFragment = new DatePickerFragment();
+                DatePickerGivingFragment newFragment = new DatePickerGivingFragment();
                 newFragment.show(Objects.requireNonNull(getActivity()).getFragmentManager(),"Date Picker");
             }
         });
