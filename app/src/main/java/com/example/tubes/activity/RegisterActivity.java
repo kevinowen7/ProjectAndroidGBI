@@ -21,6 +21,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.tubes.Callback.RegisterUserCallback;
+import com.example.tubes.Model.AlertCustom;
 import com.example.tubes.R;
 import com.example.tubes.fragment.DatePickerFragment;
 
@@ -196,7 +197,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 RegisterActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        showDialog(finalReqLogin.get(0).get("message"));
+                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"),RegisterActivity.this);
                                         hideLoading();
                                     }
                                 });
@@ -205,7 +206,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 RegisterActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        showDialog(finalReqLogin.get(0).get("message"));
+                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"),RegisterActivity.this);
                                         hideLoading();
                                     }
                                 });
@@ -217,30 +218,6 @@ public class RegisterActivity extends AppCompatActivity {
         });
     }
 
-    private void showDialog(String errorMessage){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
-
-        // set title dialog
-        alertDialogBuilder.setTitle("Error Register");
-
-        // set pesan dari dialog
-        alertDialogBuilder
-                .setMessage(errorMessage)
-                .setCancelable(false)
-                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        // jika tombol diklik, maka akan menutup activity ini
-                        dialog.cancel();
-                    }
-                });
-
-        // membuat alert dialog dari builder
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.setCanceledOnTouchOutside(true);
-        // menampilkan alert dialog
-        alertDialog.show();
-    }
 
     private ArrayList<HashMap<String, String>> RequestRegisterUser(String name, String mail, String hp, String username, String pass, String birthDate, String loc, String job) {
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();

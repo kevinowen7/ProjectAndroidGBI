@@ -56,7 +56,7 @@ public class LoginUserCallback extends AsyncTask<String, String, ArrayList<HashM
             arrayListRet = new ArrayList<>();
 
             //call http
-            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/mst_login.php",
+            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/login.php",
                     "POST", paramsed);
             System.out.println("json 2 = "+json.toString());
 

@@ -8,6 +8,7 @@
     <Button
         android:id="@+id/history"
         android:textAllCaps="false"
+        android:elevation="@dimen/elevation"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:background="@drawable/button_menu"
@@ -217,6 +218,7 @@
         android:layout_marginTop="@dimen/activity_margin_large"
         android:paddingTop="@dimen/activity_margin_small"
         android:paddingStart="@dimen/activity_margin_medium_large"
+        android:elevation="@dimen/elevation"
         android:drawablePadding="@dimen/activity_margin_medium"
         android:paddingBottom="@dimen/activity_margin_small"
         android:paddingEnd="@dimen/activity_margin_medium_large"

@@ -5,15 +5,10 @@ import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.constraintlayout.widget.ConstraintLayout;
-import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
-import android.graphics.Bitmap;
-import android.graphics.drawable.BitmapDrawable;
-import android.graphics.drawable.Drawable;
-import android.location.Location;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -22,7 +17,6 @@ import android.view.View;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ProgressBar;
-import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.example.tubes.Callback.LoginUserCallback;
@@ -32,12 +26,8 @@ import com.example.tubes.fragment.GivingFragment;
 import com.example.tubes.fragment.HomeFragment;
 import com.example.tubes.fragment.MyAccountFragment;
 import com.example.tubes.fragment.ServiceFragment;
-import com.google.android.gms.maps.model.LatLng;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
-import com.squareup.picasso.Picasso;
-import com.squareup.picasso.Target;
 
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -150,8 +140,7 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void run() {
                 //call http API untuk register
-                ArrayList<HashMap<String, String>> reqLogin = null;
-                reqLogin = RequestLoginUser(shUser,shPass);
+                ArrayList<HashMap<String, String>> reqLogin = RequestLoginUser(shUser,shPass);
 
                 Log.d("Logchecker",reqLogin.toString());
 
@@ -208,10 +197,6 @@ public class MainActivity extends AppCompatActivity {
     private ArrayList<HashMap<String, String>> RequestLoginUser(String username, String pass) {
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();
 
-        String ret = "";
-
-        Location driver = new Location("");
-        LatLng latLng =null;
 
         LoginUserCallback login_req = new LoginUserCallback(MainActivity.this);
         //Log.d("CEKIDBOOK",id_book);

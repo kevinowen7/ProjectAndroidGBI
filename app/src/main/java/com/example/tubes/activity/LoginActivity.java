@@ -1,9 +1,7 @@
 package com.example.tubes.activity;
 
-import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
@@ -16,6 +14,7 @@ import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.example.tubes.Callback.LoginUserCallback;
+import com.example.tubes.Model.AlertCustom;
 import com.example.tubes.R;
 
 import java.util.ArrayList;
@@ -115,7 +114,7 @@ public class LoginActivity extends AppCompatActivity {
                         @Override
                         public void run() {
                             //call http API untuk register
-                            ArrayList<HashMap<String, String>> reqLogin = reqLogin = RequestLoginUser(mUsernameData, mPassData);
+                            ArrayList<HashMap<String, String>> reqLogin = RequestLoginUser(mUsernameData, mPassData);
 
                             Log.d("HasilAkhir", reqLogin.toString());
 
@@ -132,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        showDialog(finalReqLogin.get(0).get("message"));
+                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"), LoginActivity.this);
                                         hideLoading();
                                     }
                                 });
@@ -142,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        showDialog(finalReqLogin.get(0).get("message"));
+                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"), LoginActivity.this);
                                         hideLoading();
                                     }
                                 });
@@ -151,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        showDialog("Username atau Password Salah");
+                                        AlertCustom.showDialog("Username atau Password Salah", LoginActivity.this);
                                         hideLoading();
                                     }
                                 });
@@ -165,30 +164,6 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    private void showDialog(String errorMessage){
-        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(
-                this);
-
-        // set title dialog
-        alertDialogBuilder.setTitle("Error Login");
-
-        // set pesan dari dialog
-        alertDialogBuilder
-                .setMessage(errorMessage)
-                .setCancelable(false)
-                .setPositiveButton("Ya",new DialogInterface.OnClickListener() {
-                    public void onClick(DialogInterface dialog,int id) {
-                        // jika tombol diklik, maka akan menutup activity ini
-                        dialog.cancel();
-                    }
-                });
-
-        // membuat alert dialog dari builder
-        AlertDialog alertDialog = alertDialogBuilder.create();
-        alertDialog.setCanceledOnTouchOutside(true);
-        // menampilkan alert dialog
-        alertDialog.show();
-    }
 
     private ArrayList<HashMap<String, String>> RequestLoginUser(String username, String pass) {
         ArrayList<HashMap<String, String>> arrayList = new ArrayList<>();

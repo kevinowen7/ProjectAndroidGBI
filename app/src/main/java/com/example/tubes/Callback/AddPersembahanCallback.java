@@ -55,7 +55,7 @@ public class AddPersembahanCallback extends AsyncTask<String, String, ArrayList<
             arrayListRet = new ArrayList<>();
 
             //call http
-            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/mst_create_persembahan.php",
+            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/create_persembahan.php",
                     "POST", paramsed);
             System.out.println("json 2 = "+json.toString());
 

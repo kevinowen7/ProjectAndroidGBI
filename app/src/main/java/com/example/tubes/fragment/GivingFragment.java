@@ -130,6 +130,8 @@ public class GivingFragment extends Fragment {
                     mJumlahPersembahan.setError(null);
                     mJenisPersembahan.setError("Masukan Jenis Persembahan!");
                 } else {
+                    mDate.setError(null);
+                    mJumlahPersembahan.setError(null);
                     mJenisPersembahan.setError(null);
                     showLoading();
                     //push data to server

@@ -68,7 +68,7 @@ public class RegisterUserCallback extends AsyncTask<String, String, ArrayList<Ha
 
         try {
             //call http
-            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/mst_register.php",
+            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/register.php",
                     "POST", paramsed);
             System.out.println("json 2 = "+json.toString());
             //Log.d("CEKIDBOOK_MSG",json.toString());
