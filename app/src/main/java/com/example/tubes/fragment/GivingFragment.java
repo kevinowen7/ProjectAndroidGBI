@@ -3,6 +3,7 @@ package com.example.tubes.fragment;
 
 import android.annotation.SuppressLint;
 import android.app.DialogFragment;
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -25,6 +26,7 @@ import android.widget.Toast;
 import com.example.tubes.Callback.AddPersembahanCallback;
 import com.example.tubes.Model.NumberTextWatcherForThousand;
 import com.example.tubes.R;
+import com.example.tubes.activity.MyHistoryActivity;
 
 
 import java.util.ArrayList;
@@ -44,6 +46,7 @@ public class GivingFragment extends Fragment {
     private Button mSepuluh;
     private Button mLimaPuluh;
     private Button mSubmit;
+    private Button mHistory;
 
     private String mUsername;
 
@@ -80,13 +83,25 @@ public class GivingFragment extends Fragment {
         mLimaPuluh = Objects.requireNonNull(getView()).findViewById(R.id.jmlh_lima_puluh);
         mSubmit = Objects.requireNonNull(getView()).findViewById(R.id.submit_persembahan);
         mDate=getView().findViewById(R.id.tanggal_giving);
+        mHistory = getView().findViewById(R.id.history);
 
+        myHistoryListener();
         dropDownJenisPersembahan();
         dateListener();
         onChangeJumlahPersembahan();
         sepuluhListener();
         limaPuluhListener();
         submitListener();
+    }
+
+    private void myHistoryListener() {
+        mHistory.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), MyHistoryActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void showLoading(){
