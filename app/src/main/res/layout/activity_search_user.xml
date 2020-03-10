@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/title_podcast"
+        android:id="@+id/title_jemaat"
         android:layout_marginTop="@dimen/activity_margin_medium_large"
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_alignParentTop="true"
@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/podcast"
+            android:text="@string/cari_jemaat"
             android:textStyle="bold"
             android:textSize="@dimen/sub_title"
             android:textAllCaps="true"
@@ -36,10 +36,10 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/search_podcast"
+        android:id="@+id/search_jemaat"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_podcast"
+        android:layout_below="@+id/title_jemaat"
 
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_marginEnd="@dimen/activity_margin_medium_large"
@@ -47,10 +47,8 @@
         android:layout_centerInParent="true"
         android:textCursorDrawable="@drawable/black_cursor"
         android:layout_marginTop="@dimen/activity_margin_medium"
-        android:hint="@string/cari_podcast"
+        android:hint="@string/cari_jemaat"
         android:maxLength="16"
-        android:focusable="true"
-        android:focusableInTouchMode="true"
         android:drawablePadding="@dimen/activity_margin_medium"
         android:drawableStart="@drawable/places_ic_search"
         android:paddingTop="@dimen/activity_margin_small_medium"
@@ -59,14 +57,16 @@
         android:paddingBottom="@dimen/activity_margin_small_medium"
         android:textSize="@dimen/sub_form_value"
         android:textStyle="bold"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:importantForAutofill="no"
         android:inputType="text" />
 
 
     <LinearLayout
-        android:id="@+id/podcast_data"
+        android:id="@+id/video_jemaat"
         android:layout_width="match_parent"
-        android:layout_below="@+id/search_podcast"
+        android:layout_below="@+id/search_jemaat"
         android:layout_marginTop="@dimen/activity_margin_medium"
         android:layout_marginStart="@dimen/activity_margin_small_medium"
         android:layout_marginEnd="@dimen/activity_margin_small_medium"
@@ -74,7 +74,7 @@
         android:layout_height="match_parent">
 
         <androidx.recyclerview.widget.RecyclerView
-            android:id="@+id/video_recycle"
+            android:id="@+id/jemaat_recycle"
             android:layout_width="match_parent"
             android:scrollbars="vertical"
             android:layout_height="match_parent"

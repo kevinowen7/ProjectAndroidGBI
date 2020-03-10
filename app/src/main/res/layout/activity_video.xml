@@ -57,6 +57,8 @@
         android:paddingBottom="@dimen/activity_margin_small_medium"
         android:textSize="@dimen/sub_form_value"
         android:textStyle="bold"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
         android:importantForAutofill="no"
         android:inputType="text" />
 

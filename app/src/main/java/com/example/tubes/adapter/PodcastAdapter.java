@@ -109,6 +109,7 @@ public class PodcastAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder
             buttonPlay = itemView.findViewById(R.id.buttonPlay);
             buttonPause = itemView.findViewById(R.id.buttonPause);
             progressList = itemView.findViewById(R.id.progressList);
+
         }
     }
 
