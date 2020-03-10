@@ -102,7 +102,7 @@ public class RegisterUserCallback extends AsyncTask<String, String, ArrayList<Ha
 
                 map.put("success", String.valueOf(success));
                 map.put("message", message);
-
+                arrayListRet.clear();
                 arrayListRet.add(map);
 
             }
@@ -113,7 +113,7 @@ public class RegisterUserCallback extends AsyncTask<String, String, ArrayList<Ha
             map.put("success", "-1");
             map.put("message", "Internal Error : Hubungi Customer Service");
 
-
+            arrayListRet.clear();
             arrayListRet.add(map);
         }
 

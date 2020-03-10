@@ -35,10 +35,36 @@
             tools:ignore="RelativeOverlap" />
     </LinearLayout>
 
+    <EditText
+        android:id="@+id/search_video"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/title_video"
+
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:background="@drawable/rounded_form"
+        android:layout_centerInParent="true"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:layout_marginTop="@dimen/activity_margin_medium"
+        android:hint="@string/nama_lengkap"
+        android:maxLength="16"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:drawableStart="@drawable/places_ic_search"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:paddingEnd="@dimen/activity_margin_large"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:textSize="@dimen/sub_form_value"
+        android:textStyle="bold"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+
     <LinearLayout
         android:id="@+id/video_data"
         android:layout_width="match_parent"
-        android:layout_below="@+id/title_video"
+        android:layout_below="@+id/search_video"
         android:layout_marginTop="@dimen/activity_margin_medium"
         android:layout_marginStart="@dimen/activity_margin_small_medium"
         android:layout_marginEnd="@dimen/activity_margin_small_medium"

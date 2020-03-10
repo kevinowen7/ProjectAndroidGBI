@@ -14,11 +14,8 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ShowPersembahanCallback extends AsyncTask<String, String, ArrayList<HashMap<String, String>>> {
-
-    private static final String TAG = "ShowPersembahanCallback";
+public class ShowVideoCallback extends AsyncTask<String, String, ArrayList<HashMap<String, String>>> {
     //Global global = new Global();
-    private ProgressDialog pDialog;
     Context context;
     int success;
     String message;
@@ -26,7 +23,7 @@ public class ShowPersembahanCallback extends AsyncTask<String, String, ArrayList
     JSONArray jsonArray = null;
     ArrayList<HashMap<String, String>> arrayListRet;
 
-    public ShowPersembahanCallback(Context m_context) {
+    public ShowVideoCallback(Context m_context) {
         this.context= m_context;
     }
 
@@ -44,16 +41,18 @@ public class ShowPersembahanCallback extends AsyncTask<String, String, ArrayList
         // Building Parameters
         List<NameValuePair> paramsed = new ArrayList<NameValuePair>();
 
-        Log.d("username : ",params[0]);
+        Log.d("limitBottom : ",params[0]);
+        Log.d("limitTop : ",params[0]);
 
-        paramsed.add(new BasicNameValuePair("username", params[0])); //username
+        paramsed.add(new BasicNameValuePair("limit_bottom", params[0]));
+        paramsed.add(new BasicNameValuePair("limit_top", params[1]));
 
 
         arrayListRet = new ArrayList<>();
 
         try {
             //call http
-            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/view_persembahan.php",
+            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/view_mst_video.php",
                     "POST", paramsed);
             System.out.println("json 2 = "+json.toString());
             //Log.d("CEKIDBOOK_MSG",json.toString());
@@ -78,9 +77,10 @@ public class ShowPersembahanCallback extends AsyncTask<String, String, ArrayList
                     HashMap<String, String> map1 = new HashMap<String, String>();
 
                     map1.put("success", String.valueOf(success));
-                    map1.put("tanggal", String.valueOf(c.getString("tanggal")));
-                    map1.put("jenis_persembahan", String.valueOf(c.getString("jenis_persembahan")));
-                    map1.put("jumlah_persembahan", String.valueOf(c.getString("jumlah_persembahan")));
+                    map1.put("id_video", String.valueOf(c.getString("id_video")));
+                    map1.put("judul_video", String.valueOf(c.getString("judul_video")));
+                    map1.put("tanggal_video", String.valueOf(c.getString("tanggal_video")));
+                    map1.put("link_video", String.valueOf(c.getString("link_video")));
                     arrayListRet.add(map1);
                 }
             } else {
@@ -89,6 +89,7 @@ public class ShowPersembahanCallback extends AsyncTask<String, String, ArrayList
 
                 map.put("success", String.valueOf(success));
                 map.put("message", message);
+
                 arrayListRet.clear();
                 arrayListRet.add(map);
 
@@ -117,3 +118,4 @@ public class ShowPersembahanCallback extends AsyncTask<String, String, ArrayList
     }
 
 }
+

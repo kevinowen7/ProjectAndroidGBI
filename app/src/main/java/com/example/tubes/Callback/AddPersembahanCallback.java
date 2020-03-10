@@ -89,6 +89,8 @@ public class AddPersembahanCallback extends AsyncTask<String, String, ArrayList<
                 map.put("success", String.valueOf(success));
                 map.put("message", message);
                 Log.d("messageError : ",message);
+
+                arrayListRet.clear();
                 arrayListRet.add(map);
 
             }
@@ -99,7 +101,7 @@ public class AddPersembahanCallback extends AsyncTask<String, String, ArrayList<
             map.put("success", "-1");
             map.put("message", "Internal Error : Hubungi Customer Service");
 
-
+            arrayListRet.clear();
             arrayListRet.add(map);
         }
 
