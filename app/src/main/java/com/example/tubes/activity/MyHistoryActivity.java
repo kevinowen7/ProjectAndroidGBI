@@ -196,7 +196,7 @@ public class MyHistoryActivity extends AppCompatActivity {
                     MyHistoryActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            AlertCustom.showDialog(finalReqLogin.get(0).get("message"),MyHistoryActivity.this);
+                            AlertCustom.showDialog(finalReqLogin.get(0).get("message"),"Error",MyHistoryActivity.this);
                             hideLoading();
                         }
                     });
@@ -205,7 +205,7 @@ public class MyHistoryActivity extends AppCompatActivity {
                     MyHistoryActivity.this.runOnUiThread(new Runnable() {
                         @Override
                         public void run() {
-                            AlertCustom.showDialog(finalReqLogin.get(0).get("message"),MyHistoryActivity.this);
+                            AlertCustom.showDialog(finalReqLogin.get(0).get("message"),"Error",MyHistoryActivity.this);
                             hideLoading();
                         }
                     });

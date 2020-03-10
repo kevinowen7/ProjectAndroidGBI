@@ -131,7 +131,7 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"), LoginActivity.this);
+                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"),"Error", LoginActivity.this);
                                         hideLoading();
                                     }
                                 });
@@ -141,7 +141,7 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"), LoginActivity.this);
+                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"),"Error", LoginActivity.this);
                                         hideLoading();
                                     }
                                 });
@@ -150,7 +150,7 @@ public class LoginActivity extends AppCompatActivity {
                                 LoginActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        AlertCustom.showDialog("Username atau Password Salah", LoginActivity.this);
+                                        AlertCustom.showDialog("Username atau Password Salah", "Error", LoginActivity.this);
                                         hideLoading();
                                     }
                                 });

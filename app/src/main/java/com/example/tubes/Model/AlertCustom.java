@@ -5,12 +5,12 @@ import android.content.DialogInterface;
 
 public class AlertCustom {
 
-    public static void showDialog(String errorMessage, Context context){
+    public static void showDialog(String errorMessage,String errorTitle, Context context){
         androidx.appcompat.app.AlertDialog.Builder alertDialogBuilder = new androidx.appcompat.app.AlertDialog.Builder(
                 context);
 
         // set title dialog
-        alertDialogBuilder.setTitle("Error Login");
+        alertDialogBuilder.setTitle(errorTitle);
 
         // set pesan dari dialog
         alertDialogBuilder

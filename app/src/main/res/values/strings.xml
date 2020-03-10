@@ -50,4 +50,5 @@
     <string name="pilih_bulan">Pilih Bulan</string>
     <string name="pilih_bulan_dan_tahun">Pilih Bulan dan Tahun</string>
     <string name="bulan_dan_tahun">Bulan dan Tahun</string>
+    <string name="loading">loading</string>
 </resources>

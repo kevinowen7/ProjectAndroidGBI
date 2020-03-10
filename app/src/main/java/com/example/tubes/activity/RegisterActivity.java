@@ -197,7 +197,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 RegisterActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"),RegisterActivity.this);
+                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"),"Error",RegisterActivity.this);
                                         hideLoading();
                                     }
                                 });
@@ -206,7 +206,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 RegisterActivity.this.runOnUiThread(new Runnable() {
                                     @Override
                                     public void run() {
-                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"),RegisterActivity.this);
+                                        AlertCustom.showDialog(finalReqLogin.get(0).get("message"),"Error",RegisterActivity.this);
                                         hideLoading();
                                     }
                                 });

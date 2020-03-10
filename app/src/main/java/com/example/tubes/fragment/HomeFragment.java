@@ -2,6 +2,7 @@ package com.example.tubes.fragment;
 
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
@@ -21,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tubes.R;
+import com.example.tubes.activity.VideoActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
@@ -77,7 +79,8 @@ public class HomeFragment extends Fragment {
         mVideo.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                Intent intent = new Intent(getActivity(), VideoActivity.class);
+                startActivity(intent);
             }
         });
     }
