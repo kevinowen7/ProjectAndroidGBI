@@ -9,7 +9,7 @@
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:id="@+id/title_video"
+        android:id="@+id/title_podcast"
         android:layout_marginTop="@dimen/activity_margin_medium_large"
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_alignParentTop="true"
@@ -27,7 +27,7 @@
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/video"
+            android:text="@string/podcast"
             android:textStyle="bold"
             android:textSize="@dimen/sub_title"
             android:textAllCaps="true"
@@ -36,10 +36,10 @@
     </LinearLayout>
 
     <EditText
-        android:id="@+id/search_video"
+        android:id="@+id/search_podcast"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/title_video"
+        android:layout_below="@+id/title_podcast"
 
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_marginEnd="@dimen/activity_margin_medium_large"
@@ -47,7 +47,7 @@
         android:layout_centerInParent="true"
         android:textCursorDrawable="@drawable/black_cursor"
         android:layout_marginTop="@dimen/activity_margin_medium"
-        android:hint="@string/cari_video"
+        android:hint="@string/cari_podcast"
         android:maxLength="16"
         android:drawablePadding="@dimen/activity_margin_medium"
         android:drawableStart="@drawable/places_ic_search"
@@ -62,9 +62,9 @@
 
 
     <LinearLayout
-        android:id="@+id/video_data"
+        android:id="@+id/podcast_data"
         android:layout_width="match_parent"
-        android:layout_below="@+id/search_video"
+        android:layout_below="@+id/search_podcast"
         android:layout_marginTop="@dimen/activity_margin_medium"
         android:layout_marginStart="@dimen/activity_margin_small_medium"
         android:layout_marginEnd="@dimen/activity_margin_small_medium"

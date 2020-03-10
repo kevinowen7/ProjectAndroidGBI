@@ -22,6 +22,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.example.tubes.R;
+import com.example.tubes.activity.PodcastActivity;
 import com.example.tubes.activity.VideoActivity;
 import com.squareup.picasso.Callback;
 import com.squareup.picasso.Picasso;
@@ -37,7 +38,7 @@ public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
     private String namaData="";
     private TextView mNama;
-    private ImageView mVideo;
+    private ImageView mVideo,mPodcast;
 
     public HomeFragment(String namaData) {
         // Required empty public constructor
@@ -71,8 +72,20 @@ public class HomeFragment extends Fragment {
         mNama.setText("Hi "+capitaliseFirstLetter(namaData)+",");
 
         mVideo = getView().findViewById(R.id.menu_video);
+        mPodcast = getView().findViewById(R.id.menu_podcast);
 
         onClickVideo();
+        onClickPodcast();
+    }
+
+    private void onClickPodcast() {
+        mPodcast.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PodcastActivity.class);
+                startActivity(intent);
+            }
+        });
     }
 
     private void onClickVideo() {

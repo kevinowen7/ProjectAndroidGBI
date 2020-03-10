@@ -51,4 +51,7 @@
     <string name="pilih_bulan_dan_tahun">Pilih Bulan dan Tahun</string>
     <string name="bulan_dan_tahun">Bulan dan Tahun</string>
     <string name="loading">loading</string>
+    <string name="cari_video">Cari Video</string>
+    <string name="podcast">podcast</string>
+    <string name="cari_podcast">Cari Podcast</string>
 </resources>

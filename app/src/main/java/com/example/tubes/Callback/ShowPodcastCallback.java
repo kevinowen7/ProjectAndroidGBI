@@ -14,7 +14,7 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
-public class ShowVideoCallback extends AsyncTask<String, String, ArrayList<HashMap<String, String>>> {
+public class ShowPodcastCallback extends AsyncTask<String, String, ArrayList<HashMap<String, String>>> {
     //Global global = new Global();
     Context context;
     int success;
@@ -23,7 +23,7 @@ public class ShowVideoCallback extends AsyncTask<String, String, ArrayList<HashM
     JSONArray jsonArray = null;
     ArrayList<HashMap<String, String>> arrayListRet;
 
-    public ShowVideoCallback(Context m_context) {
+    public ShowPodcastCallback(Context m_context) {
         this.context= m_context;
     }
 
@@ -53,7 +53,7 @@ public class ShowVideoCallback extends AsyncTask<String, String, ArrayList<HashM
 
         try {
             //call http
-            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/view_mst_video.php",
+            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/view_mst_podcast.php",
                     "POST", paramsed);
             System.out.println("json 2 = "+json.toString());
             //Log.d("CEKIDBOOK_MSG",json.toString());
@@ -78,10 +78,8 @@ public class ShowVideoCallback extends AsyncTask<String, String, ArrayList<HashM
                     HashMap<String, String> map1 = new HashMap<String, String>();
 
                     map1.put("success", String.valueOf(success));
-                    map1.put("id_video", String.valueOf(c.getString("id_video")));
-                    map1.put("judul_video", String.valueOf(c.getString("judul_video")));
-                    map1.put("tanggal_video", String.valueOf(c.getString("tanggal_video")));
-                    map1.put("link_video", String.valueOf(c.getString("link_video")));
+                    map1.put("judul_podcast", String.valueOf(c.getString("judul_podcast")));
+                    map1.put("link_podcast", String.valueOf(c.getString("link_podcast")));
                     arrayListRet.add(map1);
                 }
             } else {
