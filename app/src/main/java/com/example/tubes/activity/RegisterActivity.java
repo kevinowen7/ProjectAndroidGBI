@@ -155,7 +155,7 @@ public class RegisterActivity extends AppCompatActivity {
                     mMail.setError("Email Tidak Valid!");
                 } else if( mHpData.length() == 0 ) {
                     mMail.setError(null);
-                    mHp.setError("Masukan Jumlah Persembahan!");
+                    mHp.setError("Masukan No Hp!");
                 } else if( mUsernameData.length() == 0 ) {
                     mHp.setError(null);
                     mUsername.setError("Masukan Username!");

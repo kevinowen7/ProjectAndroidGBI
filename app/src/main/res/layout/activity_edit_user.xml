@@ -1,0 +1,187 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_myaccount"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_my_account"
+    tools:context=".fragment.MyAccountFragment">
+
+
+
+    <ImageView
+        android:id="@+id/profileImg"
+        android:layout_width="match_parent"
+        android:layout_marginTop="@dimen/activity_margin_medium"
+        android:layout_height="180dp"
+        android:layout_marginStart="@dimen/active_margin_xxl_large"
+        android:layout_marginEnd="@dimen/active_margin_xxl_large"
+        android:layout_above="@+id/nameAccount"
+        android:layout_marginBottom="@dimen/activity_margin_medium_large"
+        android:src="@color/white"
+        tools:ignore="ContentDescription" />
+
+
+
+    <EditText
+        android:id="@+id/nameAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:drawableStart="@drawable/ic_name"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:textSize="@dimen/sub_form_value"
+        android:text="@string/nama_lengkap"
+        android:layout_above="@+id/emailAccount"
+        android:background="@drawable/my_account_form_top"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/emailAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/contactAccount"
+        android:drawableStart="@drawable/ic_mail"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:text="@string/email"
+        android:background="@drawable/my_account_form_first"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/contactAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableStart="@drawable/ic_phone_number"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:text="@string/no_hp"
+        android:background="@drawable/my_account_form"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/alamatAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_pin"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:layout_below="@+id/contactAccount"
+        android:text="@string/alamat"
+        android:background="@drawable/my_account_form"
+        tools:ignore="RtlSymmetry" />
+
+    <EditText
+        android:id="@+id/pekerjaanAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_work"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:layout_below="@+id/alamatAccount"
+        android:text="@string/pekerjaan"
+        android:background="@drawable/my_account_form_bottom"
+        tools:ignore="RtlSymmetry" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:orientation="vertical"
+        android:layout_marginBottom="@dimen/activity_margin_medium_large">
+
+        <Button
+            android:id="@+id/confirm"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_edit"
+            android:gravity="center"
+            android:text="@string/confirm"
+            android:textColor="@color/colorAccent"
+            android:elevation="@dimen/elevation"
+            android:textSize="@dimen/sub_form"
+            android:layout_marginBottom="@dimen/activity_margin_medium_large"
+            android:paddingTop="@dimen/activity_margin_medium"
+            android:layout_marginStart="@dimen/activity_margin_large"
+            android:layout_marginEnd="@dimen/activity_margin_large"
+            android:paddingBottom="@dimen/activity_margin_medium"
+            tools:ignore="ButtonStyle" />
+
+        <Button
+            android:id="@+id/cancel"
+            android:textAllCaps="false"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/button_danger"
+            android:gravity="center"
+            android:text="@string/cancel"
+            android:layout_marginStart="@dimen/activity_margin_large"
+            android:layout_marginEnd="@dimen/activity_margin_large"
+            android:elevation="@dimen/elevation"
+            android:textColor="@color/white"
+            android:textSize="@dimen/sub_form"
+            android:paddingTop="@dimen/activity_margin_medium"
+            android:paddingBottom="@dimen/activity_margin_medium"
+            tools:ignore="ButtonStyle" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/loadingBackround"
+        android:translationZ="@dimen/loading_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/loading_background"
+        tools:ignore="ContentDescription"
+        android:focusable="true" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:translationZ="@dimen/loading_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/loading_gradient"
+        android:layout_height="wrap_content" />
+
+
+</RelativeLayout>
+

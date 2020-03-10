@@ -14,7 +14,8 @@
 
         <ImageView
             android:id="@+id/profile_pic"
-            android:background="@color/white"
+            android:background="@drawable/rounded_form"
+            android:layout_margin="@dimen/activity_margin_small_medium"
             android:layout_width="100dp"
             android:layout_height="100dp"/>
         <LinearLayout

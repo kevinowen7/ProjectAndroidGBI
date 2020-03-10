@@ -55,4 +55,6 @@
     <string name="podcast">podcast</string>
     <string name="cari_podcast">Cari Podcast</string>
     <string name="cari_jemaat">Cari Jemaat</string>
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
 </resources>

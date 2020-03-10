@@ -22,6 +22,7 @@ import android.widget.Toast;
 
 import com.example.tubes.Callback.LoginUserCallback;
 import com.example.tubes.R;
+import com.example.tubes.activity.EditUserActivity;
 import com.example.tubes.activity.MainActivity;
 import com.example.tubes.activity.WelcomeActivity;
 import com.google.android.gms.maps.model.LatLng;
@@ -141,7 +142,7 @@ public class MyAccountFragment extends Fragment {
         mEdit.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                startActivity(new Intent(getActivity(), EditUserActivity.class));
             }
         });
     }

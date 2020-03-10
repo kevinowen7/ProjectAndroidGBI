@@ -4,7 +4,7 @@
         android:state_pressed="true"
         android:state_enabled="true">
         <shape android:shape="rectangle"  >
-            <corners android:radius="20dp" />
+            <corners android:radius="10dp" />
             <solid android:color="@color/grey_transparant"/>
             <stroke android:width="5dp" android:color="@color/colorAccent" />
         </shape>
@@ -14,7 +14,7 @@
         android:state_focused="true"
         android:state_enabled="true">
         <shape android:shape="rectangle"  >
-            <corners android:radius="20dp" />
+            <corners android:radius="10dp" />
             <solid android:color="@color/grey_transparant"/>
             <stroke android:width="5dp" android:color="@color/colorAccent" />
         </shape>
@@ -24,7 +24,7 @@
         android:state_focused="false"
         android:state_enabled="false">
         <shape android:shape="rectangle"  >
-            <corners android:radius="20dp" />
+            <corners android:radius="10dp" />
             <solid android:color="@color/white"/>
             <stroke android:width="5dp" android:color="@color/colorAccent" />
         </shape>
