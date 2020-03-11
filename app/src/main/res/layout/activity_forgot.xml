@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@drawable/bg_sub_menu"
+    tools:context=".activity.ForgotActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/title_forgot"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        tools:ignore="UseCompoundDrawables">
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/activity_margin_medium"
+            android:src="@drawable/button_back"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/forgot"
+            android:textStyle="bold"
+            android:textSize="@dimen/sub_title"
+            android:textAllCaps="true"
+            android:textColor="@color/brown_my_history"
+            tools:ignore="RelativeOverlap" />
+    </LinearLayout>
+
+
+    <EditText
+        android:id="@+id/username_or_mail"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:background="@drawable/rounded_form"
+        android:layout_centerInParent="true"
+
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:layout_marginTop="@dimen/activity_margin_medium"
+        android:hint="@string/masukan_email"
+        android:maxLength="32"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:drawableStart="@drawable/places_ic_search"
+        android:padding="@dimen/activity_margin_medium"
+        android:textSize="@dimen/sub_form_value"
+        android:layout_marginBottom="@dimen/activity_margin_large"
+        android:textStyle="bold"
+        android:focusable="true"
+        android:focusableInTouchMode="true"
+        android:importantForAutofill="no"
+        android:inputType="text" />
+
+    <Button
+        android:id="@+id/verif"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_margin_large"
+        android:background="@drawable/button_primary"
+        android:gravity="center"
+        android:text="@string/confirm"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sub_form"
+        android:layout_below="@+id/username_or_mail"
+        android:layout_marginStart="@dimen/active_margin_xxl_large"
+        android:paddingTop="@dimen/activity_margin_small"
+        android:paddingBottom="@dimen/activity_margin_small"
+        android:layout_marginEnd="@dimen/active_margin_xxl_large"/>
+
+
+    <ImageView
+        android:id="@+id/loadingBackround"
+        android:translationZ="@dimen/loading_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/loading_background"
+        tools:ignore="ContentDescription"
+        android:focusable="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:translationZ="@dimen/loading_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/loading_gradient"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>

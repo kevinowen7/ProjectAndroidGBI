@@ -57,4 +57,15 @@
     <string name="cari_jemaat">Cari Jemaat</string>
     <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
+    <string name="masukan_username_atau_password">Masukan Username Atau Password</string>
+    <string name="masukan_username_atau_email">Masukan Username atau Email</string>
+    <string name="masukan_email">Masukan Email</string>
+    <string name="masukan_kode_verifikasi">Masukan Kode Verifikasi</string>
+    <string name="resend_code_klik_here">Resend Code? Klik here</string>
+    <string name="verification">Verification</string>
+    <string name="verifikasi">Verifikasi</string>
+    <string name="new_password">New Password</string>
+    <string name="masukan_kembali_password">Masukan Kembali Password</string>
+    <string name="masukan_kembali_password_baru">Masukan kembali password baru</string>
+    <string name="masukan_password_baru">Masukan password baru</string>
 </resources>

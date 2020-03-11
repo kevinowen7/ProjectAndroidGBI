@@ -69,7 +69,7 @@
         android:textCursorDrawable="@drawable/black_cursor"
         android:layout_marginTop="@dimen/activity_margin_small"
         android:hint="@string/email"
-        android:maxLength="30"
+        android:maxLength="32"
         android:drawablePadding="@dimen/activity_margin_medium"
         android:drawableStart="@drawable/ic_mail"
         android:paddingTop="@dimen/activity_margin_small_medium"
