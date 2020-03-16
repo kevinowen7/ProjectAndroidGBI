@@ -95,7 +95,7 @@ public class RegisterActivity extends AppCompatActivity {
                 mPass.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 mPass.setTypeface(null, Typeface.BOLD);
                 mShowPassword.setVisibility(View.VISIBLE);
-                mHidePassword.setVisibility(View.INVISIBLE);
+                mHidePassword.setVisibility(View.GONE);
             }
         });
     }
@@ -107,7 +107,7 @@ public class RegisterActivity extends AppCompatActivity {
                 //show
                 mPass.setInputType(InputType.TYPE_TEXT_VARIATION_PASSWORD);
                 mPass.setTypeface(null, Typeface.BOLD);
-                mShowPassword.setVisibility(View.INVISIBLE);
+                mShowPassword.setVisibility(View.GONE);
                 mHidePassword.setVisibility(View.VISIBLE);
             }
         });

@@ -130,64 +130,67 @@
         android:textStyle="bold"
         android:importantForAutofill="no" />
 
-
-        <EditText
-            android:id="@+id/password"
+        <LinearLayout
+            android:id="@+id/fullpw"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/activity_margin_medium_large"
-            android:background="@drawable/rounded_form"
-            android:textCursorDrawable="@drawable/black_cursor"
             android:layout_below="@+id/username"
-            android:layout_marginTop="@dimen/activity_margin_small"
-            android:hint="@string/password"
-            android:maxLength="16"
-            android:drawablePadding="@dimen/activity_margin_medium"
-            android:drawableStart="@drawable/ic_lock"
-            android:paddingTop="@dimen/activity_margin_small_medium"
-            android:paddingStart="@dimen/activity_margin_small_medium"
-            android:paddingEnd="@dimen/activity_margin_small_medium"
-            android:paddingBottom="@dimen/activity_margin_small_medium"
-            android:textSize="@dimen/sub_form_value"
-            android:layout_marginEnd="@dimen/activity_margin_medium_large"
-            android:textStyle="bold"
-            android:inputType="textPassword"
-            android:importantForAutofill="no" />
+            android:orientation="horizontal">
+            <EditText
+                android:id="@+id/password"
+                android:layout_width="0dp"
+                android:layout_weight="1.5"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin_medium_large"
+                android:background="@drawable/rounded_form"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:layout_marginTop="@dimen/activity_margin_small"
+                android:hint="@string/password"
+                android:maxLength="16"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:drawableStart="@drawable/ic_lock"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:paddingBottom="@dimen/activity_margin_small_medium"
+                android:textSize="@dimen/sub_form_value"
+                android:textStyle="bold"
+                android:inputType="textPassword"
+                android:importantForAutofill="no" />
 
-        <ImageView
-            android:id="@+id/shPassword"
-            android:drawablePadding="@dimen/activity_margin_medium"
-            android:layout_marginTop="@dimen/activity_margin_small"
-            android:layout_width="wrap_content"
-            android:layout_below="@id/username"
-            android:layout_alignParentEnd="true"
-            android:background="@drawable/rounded_form"
-            android:layout_height="wrap_content"
-            android:layout_marginEnd="@dimen/activity_margin_medium_large"
-            android:paddingTop="@dimen/activity_margin_small_medium"
-            android:paddingStart="@dimen/activity_margin_small_medium"
-            android:paddingEnd="@dimen/activity_margin_small_medium"
-            android:paddingBottom="@dimen/show_password_padding"
-            android:src="@drawable/ic_eye"
-            tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/shPassword"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:layout_marginTop="@dimen/activity_margin_small"
+                android:layout_width="0dp"
+                android:layout_weight="0.2"
+                android:background="@drawable/rounded_form"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin_medium_large"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:paddingBottom="@dimen/show_password_padding"
+                android:src="@drawable/ic_eye"
+                tools:ignore="ContentDescription" />
 
-    <ImageView
-        android:id="@+id/hdPassword"
-        android:drawablePadding="@dimen/activity_margin_medium"
-        android:layout_marginTop="@dimen/activity_margin_small"
-        android:layout_width="wrap_content"
-        android:layout_below="@id/username"
-        android:layout_alignParentEnd="true"
-        android:background="@drawable/rounded_form"
-        android:visibility="invisible"
-        android:layout_height="wrap_content"
-        android:layout_marginEnd="@dimen/activity_margin_medium_large"
-        android:paddingTop="@dimen/activity_margin_small_medium"
-        android:paddingStart="@dimen/activity_margin_small_medium"
-        android:paddingEnd="@dimen/activity_margin_small_medium"
-        android:paddingBottom="@dimen/show_password_padding"
-        android:src="@drawable/ic_hide_eye"
-        tools:ignore="ContentDescription" />
+            <ImageView
+                android:id="@+id/hdPassword"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:layout_marginTop="@dimen/activity_margin_small"
+                android:layout_width="wrap_content"
+                android:background="@drawable/rounded_form"
+                android:visibility="gone"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="@dimen/activity_margin_medium_large"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:paddingBottom="@dimen/show_password_padding"
+                android:src="@drawable/ic_hide_eye"
+                tools:ignore="ContentDescription" />
+        </LinearLayout>
+
 
 
 
@@ -195,7 +198,7 @@
         android:id="@+id/birth"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/password"
+        android:layout_below="@+id/fullpw"
         android:textColor="@color/colorPrimaryDark"
         android:layout_marginStart="@dimen/activity_margin_medium_large"
         android:layout_marginEnd="@dimen/activity_margin_medium_large"

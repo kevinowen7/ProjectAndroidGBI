@@ -44,6 +44,7 @@ public class ForgotActivity extends AppCompatActivity {
         mBack = findViewById(R.id.back_button);
 
         confirmListener();
+        backListener();
     }
     private void backListener() {
         mBack.setOnClickListener(new View.OnClickListener() {
