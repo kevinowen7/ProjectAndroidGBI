@@ -34,7 +34,7 @@ public class EasyPermissionRequest {
     }
 
     public void reqWriteMediaPermission(){
-        EasyPermissions.requestPermissions((Activity) context, context.getResources().getString(R.string.rationale_file),RC_CAMERA_PERM,Manifest.permission.WRITE_EXTERNAL_STORAGE);
+        EasyPermissions.requestPermissions((Activity) context, context.getResources().getString(R.string.rationale_file),RC_WRITE_PERMISSION,Manifest.permission.WRITE_EXTERNAL_STORAGE);
     }
 
     public Boolean hasReadMediaPermissions() {

@@ -87,6 +87,7 @@ public class LoginUserCallback extends AsyncTask<String, String, ArrayList<HashM
                     map1.put("tgl_lahir", String.valueOf(c.getString("tgl_lahir")));
                     map1.put("alamat", String.valueOf(c.getString("alamat")));
                     map1.put("pekerjaan", String.valueOf(c.getString("pekerjaan")));
+                    map1.put("image_url", String.valueOf(c.getString("image_url")));
                     arrayListRet.add(map1);
                 }
             } else {

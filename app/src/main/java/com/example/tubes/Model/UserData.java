@@ -3,10 +3,12 @@ package com.example.tubes.Model;
 public class UserData {
     private String mUsername;
     private String mName;
+    private String mUrl;
 
-    public UserData(String mUsername, String mName) {
+    public UserData(String mUsername, String mName,String image_url) {
         this.mUsername=mUsername;
         this.mName = mName;
+        this.mUrl = image_url;
     }
 
 
@@ -24,5 +26,13 @@ public class UserData {
 
     public void setmUsername(String mUsername) {
         this.mUsername = mUsername;
+    }
+
+    public String getmUrl() {
+        return mUrl;
+    }
+
+    public void setmUrl(String mUrl) {
+        this.mUrl = mUrl;
     }
 }

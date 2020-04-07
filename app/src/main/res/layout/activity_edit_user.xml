@@ -17,8 +17,8 @@
         android:layout_centerHorizontal="true"
         android:layout_above="@+id/nameAccount"
         android:layout_marginBottom="@dimen/activity_margin_medium_large"
+        android:src="@drawable/default_user"
         android:background="@drawable/rounded_form"
-
         tools:ignore="ContentDescription" />
 
 

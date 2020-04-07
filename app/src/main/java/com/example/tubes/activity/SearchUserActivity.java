@@ -5,6 +5,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.text.Editable;
@@ -30,7 +31,7 @@ import java.util.Objects;
 import java.util.Timer;
 import java.util.TimerTask;
 
-public class SearchUserActivity extends AppCompatActivity {
+public class SearchUserActivity extends AppCompatActivity implements SearchUserAdapter.OnDetailListener{
     private RecyclerView recyclerView;
     SearchUserAdapter adapter;
     ArrayList<UserData> jemaatArrayList = new ArrayList<>();
@@ -87,7 +88,7 @@ public class SearchUserActivity extends AppCompatActivity {
                     //get data
 
                     for (int i=1;i<reqUser.size();i++){
-                        jemaatArrayList.add(new UserData(reqUser.get(i).get("username"),reqUser.get(i).get("name")));
+                        jemaatArrayList.add(new UserData(reqUser.get(i).get("username"),reqUser.get(i).get("name"),reqUser.get(i).get("image_url")));
                     }
 
                     SearchUserActivity.this.runOnUiThread(new Runnable() {
@@ -138,7 +139,7 @@ public class SearchUserActivity extends AppCompatActivity {
                     //get data
 
                     for (int i=1;i<reqUser.size();i++){
-                        jemaatArrayList.add(new UserData(reqUser.get(i).get("username"),reqUser.get(i).get("name")));
+                        jemaatArrayList.add(new UserData(reqUser.get(i).get("username"),reqUser.get(i).get("name"),reqUser.get(i).get("image_url")));
                     }
 
                     SearchUserActivity.this.runOnUiThread(new Runnable() {
@@ -230,7 +231,7 @@ public class SearchUserActivity extends AppCompatActivity {
                     if (Objects.equals(reqUser.get(0).get("success"), "1") && reqUser.size() > 1) {
 
                         for (int i = 1; i < reqUser.size(); i++) {
-                            jemaatArrayList.add(new UserData(reqUser.get(i).get("username"), reqUser.get(i).get("name")));
+                            jemaatArrayList.add(new UserData(reqUser.get(i).get("username"), reqUser.get(i).get("name"), reqUser.get(i).get("image_url")));
                         }
 
                         SearchUserActivity.this.runOnUiThread(new Runnable() {
@@ -323,7 +324,7 @@ public class SearchUserActivity extends AppCompatActivity {
 
     private void recycleVideoListener() {
         recyclerView = (RecyclerView) findViewById(R.id.jemaat_recycle);
-        adapter = new SearchUserAdapter(jemaatArrayList);
+        adapter = new SearchUserAdapter(jemaatArrayList,this);
         adapter.addContext(SearchUserActivity.this);
         adapter.addActivity(this);
         RecyclerView.LayoutManager layoutManager = new LinearLayoutManager(SearchUserActivity.this);
@@ -350,5 +351,11 @@ public class SearchUserActivity extends AppCompatActivity {
                 onBackPressed();
             }
         });
+    }
+
+    @Override
+    public void onDetailClick(int position) {
+        jemaatArrayList.get(position);
+        Intent intent = new Intent(this,);
     }
 }

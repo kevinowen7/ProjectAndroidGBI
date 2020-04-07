@@ -80,6 +80,7 @@ public class ShowUserCallback extends AsyncTask<String, String, ArrayList<HashMa
                     map1.put("success", String.valueOf(success));
                     map1.put("username", String.valueOf(c.getString("username")));
                     map1.put("name", String.valueOf(c.getString("name")));
+                    map1.put("image_url", String.valueOf(c.getString("image_url")));
                     arrayListRet.add(map1);
                 }
             } else {

@@ -1,9 +1,13 @@
 package com.example.tubes.activity;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.core.content.FileProvider;
+
 import android.annotation.SuppressLint;
 import android.content.ContentResolver;
 import android.content.Context;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.database.Cursor;
@@ -11,6 +15,7 @@ import android.graphics.Bitmap;
 import android.graphics.drawable.BitmapDrawable;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Environment;
 import android.provider.MediaStore;
 import android.text.TextUtils;
 import android.util.Base64;
@@ -30,12 +35,17 @@ import com.example.tubes.Callback.LoginUserCallback;
 import com.example.tubes.Model.AlertCustom;
 import com.example.tubes.Permission.EasyPermissionRequest;
 import com.example.tubes.R;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
 import com.theartofdev.edmodo.cropper.CropImageView;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Objects;
@@ -45,15 +55,17 @@ public class EditUserActivity extends AppCompatActivity {
     private ProgressBar mProgress;
     private SharedPreferences sp;
 
-    private String mNama , mEmail , mHp , mAlamat , mPekerjaan ,mUsername;
+    private String mNama , mEmail , mHp , mAlamat , mPekerjaan ,mUsername, mImageUrl;
     private Button mConfirm;
     private Button mCancel;
     private EditText mNameAccount,mEmailAccount,mHpAccount,mAlamatAccount,mPekerjaanAccount;
     private ImageView mProfileImg;
 
     private Context mContext;
-    public static int RESULT_SELECT_IMAGE = 1;
-    public static final int REQUEST_CROP_ICON = 2;
+    private static int RESULT_SELECT_IMAGE = 1;
+    private static int RESULT_TAKE_PHOTO = 3;
+    private static final int REQUEST_CROP_ICON = 2;
+    private String currentPhotoPath;
     private Uri imageSelected;
 
     @Override
@@ -93,6 +105,10 @@ public class EditUserActivity extends AppCompatActivity {
         if (!reqPermission.hasReadMediaPermissions()) {
             reqPermission.reqReadMediaPermission();
         }
+        //request permission media
+        if (!reqPermission.hasWriteMediaPermissions()) {
+            reqPermission.reqWriteMediaPermission();
+        }
     }
 
     private void buttonUploadImg() {
@@ -107,18 +123,12 @@ public class EditUserActivity extends AppCompatActivity {
                 if (reqPermission.hasCameraPermission()) {
                     //request permission media
                     if (reqPermission.hasReadMediaPermissions()) {
-
-                        //open album to select image
-                        Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                        getIntent.setType("image/*");
-
-                        Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                        pickIntent.setType("image/*");
-
-                        Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
-                        chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
-
-                        startActivityForResult(chooserIntent, RESULT_SELECT_IMAGE);
+                        //request permission media
+                        if (reqPermission.hasWriteMediaPermissions()) {
+                            selectImage(EditUserActivity.this);
+                        } else {
+                            reqPermission.reqWriteMediaPermission();
+                        }
                     } else {
                         reqPermission.reqReadMediaPermission();
                     }
@@ -129,20 +139,142 @@ public class EditUserActivity extends AppCompatActivity {
         });
     }
 
+    private void selectImage(Context context) {
+        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Remove Picture","Cancel" };
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(context);
+        builder.setTitle("Choose your profile picture");
+
+        builder.setItems(options, new DialogInterface.OnClickListener() {
+
+            @Override
+            public void onClick(DialogInterface dialog, int item) {
+
+                if (options[item].equals("Take Photo")) {
+                    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+                    // Ensure that there's a camera activity to handle the intent
+                    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
+                        // Create the File where the photo should go
+                        File photoFile = null;
+                        try {
+                            photoFile = createImageFile();
+                        } catch (IOException ex) {
+                        }
+                        // Continue only if the File was successfully created
+                        if (photoFile != null) {
+                            Uri photoURI = FileProvider.getUriForFile(EditUserActivity.this,
+                                    "com.example.android.fileprovider",
+                                    photoFile);
+                            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
+                            Log.d("okee", "onClick: ");
+                            startActivityForResult(takePictureIntent, RESULT_TAKE_PHOTO);
+                        }
+                    }
+
+                } else if (options[item].equals("Choose from Gallery")) {
+                    //open album to select image
+                    Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
+                    getIntent.setType("image/*");
+
+                    Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
+                    pickIntent.setType("image/*");
+
+                    Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
+                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
+                    startActivityForResult(chooserIntent, RESULT_SELECT_IMAGE);
+
+                } else if (options[item].equals("Remove Picture")) {
+                    showLoading();
+                    new Thread(new Runnable() {
+                        @Override
+                        public void run() {
+                        //call http API untuk register
+                        ArrayList<HashMap<String, String>> reqEditImgProfile = RequestEditImgProfile("none", mUsername);
+
+                        Log.d("HasilAkhir", reqEditImgProfile.toString());
+
+                        if (Objects.equals(reqEditImgProfile.get(0).get("success"), "1")) {
+                            hideLoading();
+                            EditUserActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    mProfileImg.setImageResource(R.drawable.default_user);
+                                    Toast.makeText(EditUserActivity.this, "Image Profile telah di perbaharui", Toast.LENGTH_SHORT).show();
+                                }
+                            });
+                        } else if (Objects.equals(reqEditImgProfile.get(0).get("success"), "-1")) {
+                            //Internal error
+                            final ArrayList<HashMap<String, String>> finalReqLogin = reqEditImgProfile;
+                            EditUserActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    AlertCustom.showDialog(finalReqLogin.get(0).get("message"), "Error", EditUserActivity.this);
+                                    hideLoading();
+                                }
+                            });
+                        } else if (Objects.equals(reqEditImgProfile.get(0).get("success"), "0")) {
+                            final ArrayList<HashMap<String, String>> finalReqLogin = reqEditImgProfile;
+                            EditUserActivity.this.runOnUiThread(new Runnable() {
+                                @Override
+                                public void run() {
+                                    AlertCustom.showDialog(finalReqLogin.get(0).get("message"), "Error", EditUserActivity.this);
+                                    hideLoading();
+                                }
+                            });
+                        }
+                        }
+                    }).start();
+                } else if (options[item].equals("Cancel")) {
+                    dialog.dismiss();
+                }
+            }
+        });
+        builder.show();
+    }
+
+    private File createImageFile() throws IOException {
+        // Create an image file name
+        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
+
+        File image = File.createTempFile(
+                mUsername,  /* prefix */
+                ".jpg",         /* suffix */
+                storageDir      /* directory */
+        );
+
+        // Save a file: path for use with ACTION_VIEW intents
+        currentPhotoPath = image.getAbsolutePath();
+        return image;
+    }
+
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data)
     {
+        if (requestCode == RESULT_TAKE_PHOTO){
+            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
+            File f = new File(currentPhotoPath);
+            imageSelected = Uri.fromFile(f);
+            mediaScanIntent.setData(imageSelected);
+            this.sendBroadcast(mediaScanIntent);
+
+            // start cropping activity for pre-acquired image saved on the device
+            CropImage.activity(imageSelected)
+                    .setAspectRatio(3, 3)
+                    .setGuidelines(CropImageView.Guidelines.ON)
+                    .start(this);
+        }
+
+        //image from gallery
         if (requestCode == RESULT_SELECT_IMAGE && resultCode == RESULT_OK && data != null){
 
             imageSelected = data.getData();
 
             // start cropping activity for pre-acquired image saved on the device
             CropImage.activity(imageSelected)
-                    .setAspectRatio(7, 7)
+                    .setAspectRatio(3, 3)
                     .setGuidelines(CropImageView.Guidelines.ON)
                     .start(this);
 
-            RESULT_SELECT_IMAGE =0;
 
         } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
             CropImage.ActivityResult result = CropImage.getActivityResult(data);
@@ -153,7 +285,12 @@ public class EditUserActivity extends AppCompatActivity {
                 ContentResolver cR = this.getContentResolver();
                 MimeTypeMap mime = MimeTypeMap.getSingleton();
                 assert imageSelected != null;
-                final String type = mime.getExtensionFromMimeType(cR.getType(imageSelected));
+                String type = mime.getExtensionFromMimeType(cR.getType(imageSelected));
+                int perc = 75;
+                if (type==null){
+                    type="jpg";
+                    perc=60;
+                }
 
 
                 //get image in bitmap format
@@ -165,18 +302,19 @@ public class EditUserActivity extends AppCompatActivity {
                 }
                 ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
                 //compress the image to jpg format
-                imgBit.compress(Bitmap.CompressFormat.JPEG, 100, byteArrayOutputStream);
+                imgBit.compress(Bitmap.CompressFormat.JPEG, perc, byteArrayOutputStream);
 
                 final String encodeImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
 
                 showLoading();
 
+                final String finalType = type;
                 new Thread(new Runnable() {
                     @Override
                     public void run() {
 
                         //call http API untuk register
-                        ArrayList<HashMap<String, String>> reqEditImgProfile = RequestEditImgProfile(encodeImage, mUsername + "." + type);
+                        ArrayList<HashMap<String, String>> reqEditImgProfile = RequestEditImgProfile(encodeImage, mUsername + "." + finalType);
 
                         Log.d("HasilAkhir", reqEditImgProfile.toString());
 
@@ -319,7 +457,7 @@ public class EditUserActivity extends AppCompatActivity {
                     img
                     , name
             ).get();
-        }catch (Exception e){
+        } catch (Exception e){
             Log.d("Error Message",e.getMessage());
         }
 
@@ -371,6 +509,7 @@ public class EditUserActivity extends AppCompatActivity {
                     mAlamat = reqLogin.get(1).get("alamat");
                     mPekerjaan = reqLogin.get(1).get("pekerjaan");
                     mUsername = reqLogin.get(1).get("username");
+                    mImageUrl = reqLogin.get(1).get("image_url");
 
                     EditUserActivity.this.runOnUiThread(new Runnable() {
                         @Override
@@ -380,6 +519,10 @@ public class EditUserActivity extends AppCompatActivity {
                             mHpAccount.setText(mHp);
                             mAlamatAccount.setText(mAlamat);
                             mPekerjaanAccount.setText(mPekerjaan);
+                            //Change Picture Profile if exist
+                            if (!mImageUrl.equals("null")){
+                                Picasso.get().load(getString(R.string.WEB_SERVER)+mImageUrl).memoryPolicy(MemoryPolicy.NO_CACHE).into(mProfileImg);
+                            }
                             //hide loading
                             mProgress.setVisibility(View.INVISIBLE);
                             mLoading.setVisibility(View.INVISIBLE);

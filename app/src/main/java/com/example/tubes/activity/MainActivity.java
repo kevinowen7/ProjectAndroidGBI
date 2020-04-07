@@ -153,6 +153,7 @@ public class MainActivity extends AppCompatActivity {
                     mBirthdate = reqLogin.get(1).get("tgl_lahir");
                     mAlamat = reqLogin.get(1).get("alamat");
                     mPekerjaan = reqLogin.get(1).get("pekerjaan");
+                    mProfileImg = reqLogin.get(1).get("image_url");
 
                     MainActivity.this.runOnUiThread(new Runnable() {
                         @Override

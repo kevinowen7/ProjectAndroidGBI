@@ -26,6 +26,8 @@ import com.example.tubes.activity.EditUserActivity;
 import com.example.tubes.activity.MainActivity;
 import com.example.tubes.activity.WelcomeActivity;
 import com.google.android.gms.maps.model.LatLng;
+import com.squareup.picasso.MemoryPolicy;
+import com.squareup.picasso.Picasso;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -120,6 +122,10 @@ public class MyAccountFragment extends Fragment {
             mAlamat.setVisibility(View.VISIBLE);
             mPekerjaan.setVisibility(View.VISIBLE);
             mProfileImg.setVisibility(View.VISIBLE);
+            //Change Picture Profile if exist
+            if (!profileImgData.equals("null")){
+                Picasso.get().load(getString(R.string.WEB_SERVER)+profileImgData).memoryPolicy(MemoryPolicy.NO_CACHE).into(mProfileImg);
+            }
         } else {
             mNama.setVisibility(View.INVISIBLE);
             mEmail.setVisibility(View.INVISIBLE);

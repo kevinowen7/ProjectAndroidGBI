@@ -40,7 +40,6 @@ public class VideoAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder>{
         mContext = context;
     }
 
-
     public void addActivity(Activity videoActivity) {
         this.mActiviy = videoActivity;
     }

@@ -99,7 +99,7 @@ public class EditImgProfileCallBack extends AsyncTask<String, String, ArrayList<
             HashMap<String, String> map = new HashMap<String, String>();
 
             map.put("success", "-1");
-            map.put("message", "Internal Error : Hubungi Customer Service");
+            map.put("message", "Error Upload File : Max File size 1.5 MB");
 
             arrayListRet.clear();
             arrayListRet.add(map);
