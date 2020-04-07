@@ -1,6 +1,7 @@
 package com.example.tubes.Callback;
 
 import android.util.Log;
+import android.widget.Toast;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.HttpResponse;
@@ -10,6 +11,7 @@ import org.apache.http.client.entity.UrlEncodedFormEntity;
 import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.client.utils.URLEncodedUtils;
+import org.apache.http.conn.HttpHostConnectException;
 import org.apache.http.impl.client.DefaultHttpClient;
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -66,6 +68,11 @@ public class JSONParser {
             }
 
 
+        } catch (HttpHostConnectException e) {
+            Log.e("IOException Error", "Error : " + e.toString());
+            StringBuilder sb = new StringBuilder();
+            sb.append("{'success':-1,'message':'Koneksi Anda di Tolak!'}");
+            return new JSONObject(sb.toString());
         } catch (IOException e) {
             Log.e("IOException Error", "Error : " + e.toString());
             StringBuilder sb = new StringBuilder();

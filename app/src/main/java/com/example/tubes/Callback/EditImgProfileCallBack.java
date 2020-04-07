@@ -19,7 +19,7 @@ import java.util.HashMap;
 import java.util.List;
 
 
-public class EditUserCallBack extends AsyncTask<String, String, ArrayList<HashMap<String, String>>> {
+public class EditImgProfileCallBack extends AsyncTask<String, String, ArrayList<HashMap<String, String>>> {
     //Global global = new Global();
     private ProgressDialog pDialog;
     Context context;
@@ -29,7 +29,7 @@ public class EditUserCallBack extends AsyncTask<String, String, ArrayList<HashMa
     JSONArray jsonArray = null;
     ArrayList<HashMap<String, String>> arrayListRet;
 
-    public EditUserCallBack(Context m_context) {
+    public EditImgProfileCallBack(Context m_context) {
         this.context= m_context;
     }
 
@@ -48,19 +48,15 @@ public class EditUserCallBack extends AsyncTask<String, String, ArrayList<HashMa
         List<NameValuePair> paramsed = new ArrayList<NameValuePair>();
 
 
-        paramsed.add(new BasicNameValuePair("nama", params[0])); //nama
-        paramsed.add(new BasicNameValuePair("email", params[1])); //email
-        paramsed.add(new BasicNameValuePair("no_hp", params[2])); //no_hp
-        paramsed.add(new BasicNameValuePair("alamat", params[3])); //alamat
-        paramsed.add(new BasicNameValuePair("pekerjaan", params[4])); //pekerjaan
-        paramsed.add(new BasicNameValuePair("username", params[5])); //email
+        paramsed.add(new BasicNameValuePair("image", params[0])); //nama
+        paramsed.add(new BasicNameValuePair("name", params[1])); //email
 
 
         arrayListRet = new ArrayList<>();
 
         try {
             //call http
-            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/edit_mst_user.php",
+            JSONObject json = jsonParser.makeHttpRequest("http://dev.projectlab.co.id/mit/1317016/create_profile_image.php",
                     "POST", paramsed);
             System.out.println("json 2 = "+json.toString());
             //Log.d("CEKIDBOOK_MSG",json.toString());

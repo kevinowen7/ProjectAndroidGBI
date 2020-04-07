@@ -1,5 +1,6 @@
 package com.example.tubes.Model;
 
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Context;
 import android.content.pm.ActivityInfo;
@@ -36,6 +37,7 @@ public class myWebChromeClient extends WebChromeClient {
         onShowCustomView(view, callback);    //To change body of overridden methods use File | Settings | File Templates.
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     public void onShowCustomView(View view,CustomViewCallback callback) {
 
@@ -53,6 +55,7 @@ public class myWebChromeClient extends WebChromeClient {
         customViewCallback = callback;
     }
 
+    @SuppressLint("SourceLockedOrientationActivity")
     @Override
     public void onHideCustomView() {
         mAcitivity.setRequestedOrientation(ActivityInfo.SCREEN_ORIENTATION_PORTRAIT);
