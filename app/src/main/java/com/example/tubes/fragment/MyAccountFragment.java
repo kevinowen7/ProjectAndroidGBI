@@ -124,7 +124,7 @@ public class MyAccountFragment extends Fragment {
             mProfileImg.setVisibility(View.VISIBLE);
             //Change Picture Profile if exist
             if (!profileImgData.equals("null")){
-                Picasso.get().load(getString(R.string.WEB_SERVER)+profileImgData).memoryPolicy(MemoryPolicy.NO_CACHE).into(mProfileImg);
+                Picasso.get().load(getString(R.string.WEB_SERVER)+profileImgData).memoryPolicy(MemoryPolicy.NO_CACHE, MemoryPolicy.NO_STORE).into(mProfileImg);
             }
         } else {
             mNama.setVisibility(View.INVISIBLE);

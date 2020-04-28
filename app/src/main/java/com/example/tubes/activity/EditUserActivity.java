@@ -1,10 +1,12 @@
 package com.example.tubes.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.core.content.FileProvider;
 
 import android.annotation.SuppressLint;
+import android.app.Activity;
 import android.content.ContentResolver;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -35,6 +37,8 @@ import com.example.tubes.Callback.LoginUserCallback;
 import com.example.tubes.Model.AlertCustom;
 import com.example.tubes.Permission.EasyPermissionRequest;
 import com.example.tubes.R;
+import com.example.tubes.fragment.BottomSheetFragment;
+import com.google.android.material.bottomsheet.BottomSheetBehavior;
 import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 import com.theartofdev.edmodo.cropper.CropImage;
@@ -46,8 +50,11 @@ import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
 import java.io.OutputStream;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
+import java.util.Locale;
 import java.util.Objects;
 
 public class EditUserActivity extends AppCompatActivity {
@@ -125,7 +132,7 @@ public class EditUserActivity extends AppCompatActivity {
                     if (reqPermission.hasReadMediaPermissions()) {
                         //request permission media
                         if (reqPermission.hasWriteMediaPermissions()) {
-                            selectImage(EditUserActivity.this);
+                            showBottomSheetDialogFragment();
                         } else {
                             reqPermission.reqWriteMediaPermission();
                         }
@@ -139,217 +146,10 @@ public class EditUserActivity extends AppCompatActivity {
         });
     }
 
-    private void selectImage(Context context) {
-        final CharSequence[] options = { "Take Photo", "Choose from Gallery","Remove Picture","Cancel" };
 
-        AlertDialog.Builder builder = new AlertDialog.Builder(context);
-        builder.setTitle("Choose your profile picture");
-
-        builder.setItems(options, new DialogInterface.OnClickListener() {
-
-            @Override
-            public void onClick(DialogInterface dialog, int item) {
-
-                if (options[item].equals("Take Photo")) {
-                    Intent takePictureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-                    // Ensure that there's a camera activity to handle the intent
-                    if (takePictureIntent.resolveActivity(getPackageManager()) != null) {
-                        // Create the File where the photo should go
-                        File photoFile = null;
-                        try {
-                            photoFile = createImageFile();
-                        } catch (IOException ex) {
-                        }
-                        // Continue only if the File was successfully created
-                        if (photoFile != null) {
-                            Uri photoURI = FileProvider.getUriForFile(EditUserActivity.this,
-                                    "com.example.android.fileprovider",
-                                    photoFile);
-                            takePictureIntent.putExtra(MediaStore.EXTRA_OUTPUT, photoURI);
-                            Log.d("okee", "onClick: ");
-                            startActivityForResult(takePictureIntent, RESULT_TAKE_PHOTO);
-                        }
-                    }
-
-                } else if (options[item].equals("Choose from Gallery")) {
-                    //open album to select image
-                    Intent getIntent = new Intent(Intent.ACTION_GET_CONTENT);
-                    getIntent.setType("image/*");
-
-                    Intent pickIntent = new Intent(Intent.ACTION_PICK, android.provider.MediaStore.Images.Media.EXTERNAL_CONTENT_URI);
-                    pickIntent.setType("image/*");
-
-                    Intent chooserIntent = Intent.createChooser(getIntent, "Select Image");
-                    chooserIntent.putExtra(Intent.EXTRA_INITIAL_INTENTS, new Intent[]{pickIntent});
-                    startActivityForResult(chooserIntent, RESULT_SELECT_IMAGE);
-
-                } else if (options[item].equals("Remove Picture")) {
-                    showLoading();
-                    new Thread(new Runnable() {
-                        @Override
-                        public void run() {
-                        //call http API untuk register
-                        ArrayList<HashMap<String, String>> reqEditImgProfile = RequestEditImgProfile("none", mUsername);
-
-                        Log.d("HasilAkhir", reqEditImgProfile.toString());
-
-                        if (Objects.equals(reqEditImgProfile.get(0).get("success"), "1")) {
-                            hideLoading();
-                            EditUserActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    mProfileImg.setImageResource(R.drawable.default_user);
-                                    Toast.makeText(EditUserActivity.this, "Image Profile telah di perbaharui", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        } else if (Objects.equals(reqEditImgProfile.get(0).get("success"), "-1")) {
-                            //Internal error
-                            final ArrayList<HashMap<String, String>> finalReqLogin = reqEditImgProfile;
-                            EditUserActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    AlertCustom.showDialog(finalReqLogin.get(0).get("message"), "Error", EditUserActivity.this);
-                                    hideLoading();
-                                }
-                            });
-                        } else if (Objects.equals(reqEditImgProfile.get(0).get("success"), "0")) {
-                            final ArrayList<HashMap<String, String>> finalReqLogin = reqEditImgProfile;
-                            EditUserActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    AlertCustom.showDialog(finalReqLogin.get(0).get("message"), "Error", EditUserActivity.this);
-                                    hideLoading();
-                                }
-                            });
-                        }
-                        }
-                    }).start();
-                } else if (options[item].equals("Cancel")) {
-                    dialog.dismiss();
-                }
-            }
-        });
-        builder.show();
-    }
-
-    private File createImageFile() throws IOException {
-        // Create an image file name
-        File storageDir = getExternalFilesDir(Environment.DIRECTORY_PICTURES);
-
-        File image = File.createTempFile(
-                mUsername,  /* prefix */
-                ".jpg",         /* suffix */
-                storageDir      /* directory */
-        );
-
-        // Save a file: path for use with ACTION_VIEW intents
-        currentPhotoPath = image.getAbsolutePath();
-        return image;
-    }
-
-    @Override
-    public void onActivityResult(int requestCode, int resultCode, Intent data)
-    {
-        if (requestCode == RESULT_TAKE_PHOTO){
-            Intent mediaScanIntent = new Intent(Intent.ACTION_MEDIA_SCANNER_SCAN_FILE);
-            File f = new File(currentPhotoPath);
-            imageSelected = Uri.fromFile(f);
-            mediaScanIntent.setData(imageSelected);
-            this.sendBroadcast(mediaScanIntent);
-
-            // start cropping activity for pre-acquired image saved on the device
-            CropImage.activity(imageSelected)
-                    .setAspectRatio(3, 3)
-                    .setGuidelines(CropImageView.Guidelines.ON)
-                    .start(this);
-        }
-
-        //image from gallery
-        if (requestCode == RESULT_SELECT_IMAGE && resultCode == RESULT_OK && data != null){
-
-            imageSelected = data.getData();
-
-            // start cropping activity for pre-acquired image saved on the device
-            CropImage.activity(imageSelected)
-                    .setAspectRatio(3, 3)
-                    .setGuidelines(CropImageView.Guidelines.ON)
-                    .start(this);
-
-
-        } else if (requestCode == CropImage.CROP_IMAGE_ACTIVITY_REQUEST_CODE) {
-            CropImage.ActivityResult result = CropImage.getActivityResult(data);
-            if (resultCode == RESULT_OK) {
-                Uri imgCrop = result.getUri();
-                mProfileImg.setImageURI(imgCrop);
-
-                ContentResolver cR = this.getContentResolver();
-                MimeTypeMap mime = MimeTypeMap.getSingleton();
-                assert imageSelected != null;
-                String type = mime.getExtensionFromMimeType(cR.getType(imageSelected));
-                int perc = 75;
-                if (type==null){
-                    type="jpg";
-                    perc=60;
-                }
-
-
-                //get image in bitmap format
-                Bitmap imgBit = null;
-                try {
-                    imgBit = MediaStore.Images.Media.getBitmap(getContentResolver(), imgCrop);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-                ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
-                //compress the image to jpg format
-                imgBit.compress(Bitmap.CompressFormat.JPEG, perc, byteArrayOutputStream);
-
-                final String encodeImage = Base64.encodeToString(byteArrayOutputStream.toByteArray(), Base64.DEFAULT);
-
-                showLoading();
-
-                final String finalType = type;
-                new Thread(new Runnable() {
-                    @Override
-                    public void run() {
-
-                        //call http API untuk register
-                        ArrayList<HashMap<String, String>> reqEditImgProfile = RequestEditImgProfile(encodeImage, mUsername + "." + finalType);
-
-                        Log.d("HasilAkhir", reqEditImgProfile.toString());
-
-                        if (Objects.equals(reqEditImgProfile.get(0).get("success"), "1")) {
-                            hideLoading();
-                            EditUserActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    Toast.makeText(EditUserActivity.this, "Image Profile telah di perbaharui", Toast.LENGTH_SHORT).show();
-                                }
-                            });
-                        } else if (Objects.equals(reqEditImgProfile.get(0).get("success"), "-1")) {
-                            //Internal error
-                            final ArrayList<HashMap<String, String>> finalReqLogin = reqEditImgProfile;
-                            EditUserActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    AlertCustom.showDialog(finalReqLogin.get(0).get("message"), "Error", EditUserActivity.this);
-                                    hideLoading();
-                                }
-                            });
-                        } else if (Objects.equals(reqEditImgProfile.get(0).get("success"), "0")) {
-                            final ArrayList<HashMap<String, String>> finalReqLogin = reqEditImgProfile;
-                            EditUserActivity.this.runOnUiThread(new Runnable() {
-                                @Override
-                                public void run() {
-                                    AlertCustom.showDialog(finalReqLogin.get(0).get("message"), "Error", EditUserActivity.this);
-                                    hideLoading();
-                                }
-                            });
-                        }
-                    }
-                }).start();
-            }
-        }
+    public void showBottomSheetDialogFragment() {
+        BottomSheetFragment bottomSheetFragment = new BottomSheetFragment(mContext,EditUserActivity.this,mUsername);
+        bottomSheetFragment.show(getSupportFragmentManager(), bottomSheetFragment.getTag());
     }
 
     private static boolean isValidEmail(CharSequence target) {

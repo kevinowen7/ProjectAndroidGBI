@@ -59,7 +59,6 @@
     <string name="podcast">podcast</string>
     <string name="cari_podcast">Cari Podcast</string>
     <string name="cari_jemaat">Cari Jemaat</string>
-    <string name="cancel">Cancel</string>
     <string name="confirm">Confirm</string>
     <string name="masukan_username_atau_password">Masukan Username Atau Password</string>
     <string name="masukan_username_atau_email">Masukan Username atau Email</string>
@@ -72,4 +71,10 @@
     <string name="masukan_kembali_password">Masukan Kembali Password</string>
     <string name="masukan_kembali_password_baru">Masukan kembali password baru</string>
     <string name="masukan_password_baru">Masukan password baru</string>
+    <string name="profile">Profile</string>
+    <string name="preview">Preview</string>
+    <string name="cancel">Cancel</string>
+    <string name="remove_picture">Remove Picture</string>
+    <string name="take_photo">Take Photo</string>
+    <string name="choose_from_gallery">Choose from Gallery</string>
 </resources>

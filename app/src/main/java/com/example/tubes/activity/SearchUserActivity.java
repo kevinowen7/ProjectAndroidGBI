@@ -356,6 +356,8 @@ public class SearchUserActivity extends AppCompatActivity implements SearchUserA
     @Override
     public void onDetailClick(int position) {
         jemaatArrayList.get(position);
-        Intent intent = new Intent(this,);
+        Intent intent = new Intent(this,DetailUserActivity.class);
+        intent.putExtra("username",jemaatArrayList.get(position).getmUsername());
+        startActivity(intent);
     }
 }

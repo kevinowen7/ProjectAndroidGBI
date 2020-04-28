@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:paddingBottom="8dp"
+    android:paddingTop="8dp">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:id="@+id/take_photo_sheet"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/activity_margin_medium"
+        android:paddingRight="@dimen/activity_margin_medium"
+        android:paddingTop="8dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_camera"
+            android:tint="#737373"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/take_photo"
+            android:textColor="#737373"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/choose_sheet"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/activity_margin_medium"
+        android:paddingRight="@dimen/activity_margin_medium"
+        android:paddingTop="8dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_gallery"
+            android:tint="#737373"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/choose_from_gallery"
+            android:textColor="#737373"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/remove_sheet"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/activity_margin_medium"
+        android:paddingRight="@dimen/activity_margin_medium"
+        android:paddingTop="8dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_trash"
+            android:tint="#737373"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/remove_picture"
+            android:textColor="#737373"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/cancel_sheet"
+        android:orientation="horizontal"
+        android:paddingBottom="8dp"
+        android:paddingLeft="@dimen/activity_margin_medium"
+        android:paddingRight="@dimen/activity_margin_medium"
+        android:paddingTop="8dp"
+        tools:ignore="UseCompoundDrawables">
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginEnd="32dp"
+            android:src="@drawable/ic_cancel_black_24dp"
+            android:tint="#737373"
+            tools:ignore="ContentDescription" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:text="@string/cancel"
+            android:textColor="#737373"
+            android:textSize="16sp" />
+
+    </LinearLayout>
+</LinearLayout>

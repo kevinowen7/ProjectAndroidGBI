@@ -1,9 +1,202 @@
-<?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".activity.DetailUser">
+    android:background="@drawable/bg_sub_menu"
+    tools:context=".activity.DetailUserActivity">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/title_profile"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        tools:ignore="UseCompoundDrawables">
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/activity_margin_medium"
+            android:src="@drawable/button_back"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/profile"
+            android:textStyle="bold"
+            android:textSize="@dimen/sub_title"
+            android:textAllCaps="true"
+            android:textColor="@color/brown_my_history"
+            tools:ignore="RelativeOverlap" />
+    </LinearLayout>
+
+    <ImageView
+        android:id="@+id/profileImg"
+        android:layout_width="168dp"
+        android:layout_marginTop="@dimen/activity_margin_medium"
+        android:layout_height="168dp"
+        android:layout_centerHorizontal="true"
+        android:layout_above="@+id/nameAccount"
+        android:layout_marginBottom="@dimen/activity_margin_medium_large"
+        android:src="@drawable/default_user"
+        android:background="@drawable/rounded_form"
+        tools:ignore="ContentDescription" />
+
+
+
+    <TextView
+        android:id="@+id/nameAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:drawableStart="@drawable/ic_name"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:textSize="@dimen/sub_form_value"
+        android:text="@string/nama_lengkap"
+        android:layout_above="@+id/emailAccount"
+        android:background="@drawable/my_account_form_top"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/emailAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_above="@+id/contactAccount"
+        android:drawableStart="@drawable/ic_mail"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:text="@string/email"
+        android:background="@drawable/my_account_form_first"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/contactAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerInParent="true"
+        android:drawableStart="@drawable/ic_phone_number"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:text="@string/no_hp"
+        android:background="@drawable/my_account_form"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/usernameAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_user"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:layout_below="@+id/contactAccount"
+        android:text="@string/username"
+        android:background="@drawable/my_account_form"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/birthAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_birthdate"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:layout_below="@+id/usernameAccount"
+        android:text="@string/tanggal_lahir"
+        android:background="@drawable/my_account_form"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/alamatAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_pin"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:layout_below="@+id/birthAccount"
+        android:text="@string/alamat"
+        android:background="@drawable/my_account_form"
+        tools:ignore="RtlSymmetry" />
+
+    <TextView
+        android:id="@+id/pekerjaanAccount"
+        android:paddingTop="@dimen/activity_margin_small_medium"
+        android:paddingBottom="@dimen/activity_margin_small_medium"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:drawableStart="@drawable/ic_work"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:textColor="@color/black"
+        android:textSize="@dimen/sub_form_value"
+        android:layout_below="@+id/alamatAccount"
+        android:text="@string/pekerjaan"
+        android:background="@drawable/my_account_form_bottom"
+        tools:ignore="RtlSymmetry" />
+
+    <ImageView
+        android:id="@+id/loadingBackround"
+        android:translationZ="@dimen/loading_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/loading_background"
+        tools:ignore="ContentDescription"
+        android:focusable="true" />
+
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:translationZ="@dimen/loading_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/loading_gradient"
+        android:layout_height="wrap_content" />
+
+
+
+</RelativeLayout>
