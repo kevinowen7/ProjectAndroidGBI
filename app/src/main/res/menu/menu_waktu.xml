@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dr_minggu"
+        android:title="@string/minggu" />
+
+    <item
+        android:id="@+id/dr_senin"
+        android:title="@string/senin" />
+
+    <item
+        android:id="@+id/dr_selasa"
+        android:title="@string/selasa" />
+
+    <item
+        android:id="@+id/dr_rabu"
+        android:title="@string/rabu" />
+
+    <item
+        android:id="@+id/dr_kamis"
+        android:title="@string/kamis" />
+
+    <item
+        android:id="@+id/dr_jumat"
+        android:title="@string/jumat" />
+
+    <item
+        android:id="@+id/dr_sabtu"
+        android:title="@string/sabtu" />
+</menu>

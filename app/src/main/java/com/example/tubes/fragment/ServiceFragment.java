@@ -14,6 +14,9 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 
 import com.example.tubes.R;
+import com.example.tubes.activity.ActivityBaptis;
+import com.example.tubes.activity.CellActivity;
+import com.example.tubes.activity.PelayanActivity;
 import com.example.tubes.activity.SearchUserActivity;
 import com.example.tubes.activity.VideoActivity;
 
@@ -21,14 +24,16 @@ import com.example.tubes.activity.VideoActivity;
  * A simple {@link Fragment} subclass.
  */
 public class ServiceFragment extends Fragment {
-    private ImageView mCariJemaat;
+    private ImageView mCariJemaat,mPelayan,mBaptis,mCel;
+    private String mUsername;
 
-    public ServiceFragment() {
+    public ServiceFragment(String mUsername) {
         // Required empty public constructor
+        this.mUsername = mUsername;
     }
 
-    public static ServiceFragment newInstance(){
-        ServiceFragment frg = new ServiceFragment();
+    public static ServiceFragment newInstance(String mUsername){
+        ServiceFragment frg = new ServiceFragment(mUsername);
         return frg;
     }
 
@@ -48,8 +53,36 @@ public class ServiceFragment extends Fragment {
 
     private void initUI() {
         mCariJemaat = getView().findViewById(R.id.menu_cari_jemaat);
+        mPelayan = getView().findViewById(R.id.menu_pelayanan);
+        mBaptis = getView().findViewById(R.id.menu_baptisan);
+        mCel = getView().findViewById(R.id.menu_sel_group);
 
         onClickCariJemaat();
+        onClickPelayan();
+        onClickBaptis();
+        onClickCel();
+    }
+
+    private void onClickCel() {
+        mCel.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), CellActivity.class);
+                intent.putExtra("username",mUsername);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void onClickBaptis() {
+        mBaptis.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), ActivityBaptis.class);
+                intent.putExtra("username",mUsername);
+                startActivity(intent);
+            }
+        });
     }
 
     private void onClickCariJemaat() {
@@ -57,6 +90,17 @@ public class ServiceFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getActivity(), SearchUserActivity.class);
+                startActivity(intent);
+            }
+        });
+    }
+
+    private void onClickPelayan() {
+        mPelayan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getActivity(), PelayanActivity.class);
+                intent.putExtra("username",mUsername);
                 startActivity(intent);
             }
         });

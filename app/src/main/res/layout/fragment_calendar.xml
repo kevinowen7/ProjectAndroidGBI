@@ -1,14 +1,154 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".fragment.CalendarFragment">
 
-    <CalendarView
+    <com.applandeo.materialcalendarview.CalendarView
         android:id="@+id/calendarItem"
         android:layout_width="match_parent"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
         android:layout_marginTop="@dimen/activity_margin_medium"
+        android:layout_marginBottom="@dimen/activity_margin_medium"
+        app:highlightedDaysLabelsColor="@color/design_default_color_primary"
+        app:headerColor="@color/design_default_color_primary"
+        app:eventsEnabled="true"
+        app:type="one_day_picker"
+        app:selectionColor="@color/design_default_color_primary"
+        app:todayLabelColor="@color/design_default_color_primary"
+        android:layout_height="350dp" />
+
+    <ScrollView
+        android:layout_below="@id/calendarItem"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:id="@+id/theme"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin_medium_large"
+                android:layout_marginEnd="@dimen/activity_margin_medium_large"
+                android:background="@drawable/rounded_form"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:layout_marginTop="@dimen/activity_margin_small"
+                android:maxLength="32"
+                android:hint="@string/theme"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_large"
+                android:paddingBottom="@dimen/activity_margin_small_medium"
+                android:textSize="@dimen/sub_form_value"
+                android:textStyle="bold"
+                android:importantForAutofill="no"/>
+
+            <TextView
+                android:id="@+id/pembicara"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin_medium_large"
+                android:layout_marginEnd="@dimen/activity_margin_medium_large"
+                android:background="@drawable/rounded_form"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:layout_marginTop="@dimen/activity_margin_small"
+                android:maxLength="32"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:hint="@string/pembicara"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_large"
+                android:paddingBottom="@dimen/activity_margin_small_medium"
+                android:textSize="@dimen/sub_form_value"
+                android:textStyle="bold"
+                android:importantForAutofill="no"/>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/jenis_pelayanan_dd"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin_medium_large"
+                android:layout_marginEnd="@dimen/activity_margin_medium_large"
+                android:background="@drawable/rounded_form"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:layout_marginTop="@dimen/activity_margin_small"
+                android:hint="@string/pilih_jenis_pelayanan"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:maxLength="16"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_large"
+                android:textSize="@dimen/sub_form_value"
+                android:textStyle="bold"
+                android:importantForAutofill="no"
+                >
+
+                <EditText
+                    android:id="@+id/jenis_pelayanan"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:cursorVisible="false"
+                    android:focusable="true"
+                    android:focusableInTouchMode="false"
+                    android:importantForAutofill="no"
+                    android:inputType="textNoSuggestions"
+                    tools:ignore="LabelFor" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <TextView
+                android:id="@+id/nama_pelayan"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:layout_marginStart="@dimen/activity_margin_medium_large"
+                android:layout_marginEnd="@dimen/activity_margin_medium_large"
+                android:background="@drawable/rounded_form"
+                android:textCursorDrawable="@drawable/black_cursor"
+                android:layout_marginTop="@dimen/activity_margin_small"
+                android:drawablePadding="@dimen/activity_margin_medium"
+                android:hint="@string/nama_pelayan"
+                android:layout_marginBottom="@dimen/active_margin_very_large"
+                android:paddingTop="@dimen/activity_margin_small_medium"
+                android:paddingStart="@dimen/activity_margin_small_medium"
+                android:paddingEnd="@dimen/activity_margin_large"
+                android:paddingBottom="@dimen/activity_margin_small_medium"
+                android:textSize="@dimen/sub_form_value"
+                android:textStyle="bold"
+                android:importantForAutofill="no"
+                />
+        </LinearLayout>
+
+    </ScrollView>
+
+    <ImageView
+        android:id="@+id/loadingBackround"
+        android:translationZ="@dimen/loading_back"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:clickable="true"
+        android:visibility="invisible"
+        app:srcCompat="@drawable/loading_background"
+        tools:ignore="ContentDescription"
+        android:focusable="true" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:translationZ="@dimen/loading_bar"
+        style="?android:attr/progressBarStyle"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:visibility="invisible"
+        android:indeterminateDrawable="@drawable/loading_gradient"
         android:layout_height="wrap_content" />
 
 </RelativeLayout>

@@ -1,0 +1,106 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_sub_menu"
+    tools:context=".activity.DetailUserActivity">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:id="@+id/title_profile"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/active_margin_extra_large"
+        android:orientation="horizontal"
+        android:layout_height="wrap_content"
+        tools:ignore="UseCompoundDrawables">
+        <ImageView
+            android:id="@+id/back_button"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center_vertical"
+            android:layout_marginEnd="@dimen/activity_margin_medium"
+            android:src="@drawable/button_back"
+            tools:ignore="ContentDescription" />
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/pelayanan"
+            android:textStyle="bold"
+            android:textSize="@dimen/sub_title"
+            android:textAllCaps="true"
+            android:textColor="@color/brown_my_history"
+            tools:ignore="RelativeOverlap" />
+
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/jenis_pelayanan_text"
+        android:layout_marginTop="@dimen/activity_margin_medium_large"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:text="@string/jenis_pelayanan"
+        android:textColor="@color/black_low"
+        android:layout_below="@+id/title_profile"
+        android:textSize="@dimen/sub_form"
+        android:textStyle="bold" />
+
+    <com.google.android.material.textfield.TextInputLayout
+        android:id="@+id/jenis_persembahan_dd"
+        style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/jenis_pelayanan_text"
+        android:layout_marginStart="@dimen/activity_margin_medium_large"
+        android:layout_marginEnd="@dimen/activity_margin_medium_large"
+        android:background="@drawable/rounded_form"
+        android:textCursorDrawable="@drawable/black_cursor"
+        android:layout_marginTop="@dimen/activity_margin_small"
+        android:hint="@string/pilih_jenis_pelayanan"
+        android:drawablePadding="@dimen/activity_margin_medium"
+        android:maxLength="16"
+        android:paddingStart="@dimen/activity_margin_small_medium"
+        android:paddingEnd="@dimen/activity_margin_large"
+        android:textSize="@dimen/sub_form_value"
+        android:textStyle="bold"
+        android:importantForAutofill="no"
+        >
+
+        <EditText
+            android:id="@+id/jenis_persembahan"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            android:cursorVisible="false"
+            android:focusable="true"
+            android:focusableInTouchMode="false"
+            android:importantForAutofill="no"
+            android:inputType="textNoSuggestions"
+            tools:ignore="LabelFor" />
+
+    </com.google.android.material.textfield.TextInputLayout>
+
+    <Button
+        android:id="@+id/submit"
+        android:textAllCaps="false"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="@dimen/activity_margin_small"
+        android:background="@drawable/button_primary"
+        android:gravity="center"
+        android:text="@string/sub"
+        android:textColor="@color/white"
+        android:textSize="@dimen/sub_form"
+        android:layout_centerInParent="true"
+        android:layout_marginStart="@dimen/active_margin_xxl_large"
+        android:paddingTop="@dimen/activity_margin_small"
+        android:paddingBottom="@dimen/activity_margin_small"
+        android:layout_marginEnd="@dimen/active_margin_xxl_large"/>
+
+</RelativeLayout>

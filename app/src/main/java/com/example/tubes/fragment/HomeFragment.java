@@ -25,6 +25,7 @@ import com.example.tubes.R;
 import com.example.tubes.activity.PodcastActivity;
 import com.example.tubes.activity.VideoActivity;
 import com.squareup.picasso.Callback;
+import com.squareup.picasso.MemoryPolicy;
 import com.squareup.picasso.Picasso;
 import com.squareup.picasso.Target;
 
@@ -38,7 +39,7 @@ public class HomeFragment extends Fragment {
     private static final String TAG = "HomeFragment";
     private String namaData="";
     private TextView mNama;
-    private ImageView mVideo,mPodcast;
+    private ImageView mVideo,mPodcast,mImageHome;
 
     public HomeFragment(String namaData) {
         // Required empty public constructor
@@ -73,6 +74,8 @@ public class HomeFragment extends Fragment {
 
         mVideo = getView().findViewById(R.id.menu_video);
         mPodcast = getView().findViewById(R.id.menu_podcast);
+        mImageHome = getView().findViewById(R.id.imageCarousel);
+        Picasso.get().load(getString(R.string.WEB_SERVER)+"home.jpg").memoryPolicy(MemoryPolicy.NO_CACHE).into(mImageHome);
 
         onClickVideo();
         onClickPodcast();

@@ -25,9 +25,8 @@
     <ImageView
         android:id="@+id/imageCarousel"
         android:layout_width="match_parent"
-        android:layout_height="170dp"
+        android:layout_height="300dp"
         android:layout_centerInParent="true"
-        android:layout_marginBottom="@dimen/activity_margin_medium"
         android:layout_below="@+id/text_welcome"
         android:src="@color/white"
         tools:ignore="ContentDescription" />
@@ -50,30 +49,15 @@
                 android:layout_width="wrap_content"
                 android:elevation="@dimen/elevation"
                 android:layout_gravity="center"
-                android:paddingStart="@dimen/activity_margin_small_medium"
-                android:paddingTop="@dimen/activity_margin_small_medium"
-                android:paddingBottom="@dimen/activity_margin_small_medium"
-                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:paddingStart="@dimen/activity_margin_medium"
+                android:paddingTop="@dimen/activity_margin_medium"
+                android:paddingBottom="@dimen/activity_margin_medium"
+                android:paddingEnd="@dimen/activity_margin_medium"
                 android:layout_height="wrap_content"
                 android:background="@drawable/button_edit"
                 android:src="@mipmap/video"
                 tools:ignore="ContentDescription" />
 
-
-            <ImageView
-                android:id="@+id/menu_event"
-                android:layout_marginTop="@dimen/activity_margin_medium"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:elevation="@dimen/elevation"
-                android:paddingStart="@dimen/activity_margin_small_medium"
-                android:paddingTop="@dimen/activity_margin_small_medium"
-                android:paddingBottom="@dimen/activity_margin_small_medium"
-                android:paddingEnd="@dimen/activity_margin_small_medium"
-                android:background="@drawable/button_edit"
-                android:src="@mipmap/event"
-                tools:ignore="ContentDescription" />
         </LinearLayout>
         <LinearLayout
             android:layout_width="wrap_content"
@@ -89,30 +73,13 @@
                 android:layout_gravity="center"
                 android:background="@drawable/button_edit"
                 android:src="@mipmap/podcast"
-                android:paddingStart="@dimen/activity_margin_small_medium"
-                android:paddingTop="@dimen/activity_margin_small_medium"
-                android:paddingBottom="@dimen/activity_margin_small_medium"
-                android:paddingEnd="@dimen/activity_margin_small_medium"
+                android:paddingStart="@dimen/activity_margin_medium"
+                android:paddingTop="@dimen/activity_margin_medium"
+                android:paddingBottom="@dimen/activity_margin_medium"
+                android:paddingEnd="@dimen/activity_margin_medium"
                 android:layout_height="wrap_content"
                 tools:ignore="ContentDescription" />
 
-
-
-
-            <ImageView
-                android:id="@+id/menu_findus"
-                android:layout_width="wrap_content"
-                android:layout_gravity="center"
-                android:elevation="@dimen/elevation"
-                android:paddingStart="@dimen/activity_margin_small_medium"
-                android:paddingTop="@dimen/activity_margin_small_medium"
-                android:paddingBottom="@dimen/activity_margin_small_medium"
-                android:paddingEnd="@dimen/activity_margin_small_medium"
-                android:layout_marginTop="@dimen/activity_margin_medium"
-                android:background="@drawable/button_edit"
-                android:src="@mipmap/findus"
-                android:layout_height="wrap_content"
-                tools:ignore="ContentDescription" />
         </LinearLayout>
 
     </LinearLayout>

@@ -76,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
                 return true;
             case R.id.service:
                 mFrameLayout.setVisibility(View.VISIBLE);
-                mSelected = ServiceFragment.newInstance();
+                mSelected = ServiceFragment.newInstance(mUsername);
                 getSupportFragmentManager().beginTransaction().replace(R.id.frame_container,mSelected).commit();
                 mainContainer.setBackgroundResource(R.drawable.bg_home);
                 mActionBar.setTitle(R.string.service);

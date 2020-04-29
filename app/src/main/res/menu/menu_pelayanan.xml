@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/dr_worship_leader"
+        android:title="@string/wl" />
+
+    <item
+        android:id="@+id/dr_music"
+        android:title="@string/music" />
+
+    <item
+        android:id="@+id/dr_singer"
+        android:title="@string/singer" />
+
+    <item
+        android:id="@+id/dr_multimedia"
+        android:title="@string/multimedia" />
+
+    <item
+        android:id="@+id/dr_dancer"
+        android:title="@string/dancer" />
+
+    <item
+        android:id="@+id/dr_banner"
+        android:title="@string/banner" />
+
+    <item
+        android:id="@+id/dr_choir"
+        android:title="@string/choir" />
+</menu>

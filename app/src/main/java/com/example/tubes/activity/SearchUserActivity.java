@@ -130,7 +130,7 @@ public class SearchUserActivity extends AppCompatActivity implements SearchUserA
         new Thread(new Runnable() {
             @Override
             public void run() {
-                //call http API untuk register
+                //call http API untuk search
                 final ArrayList<HashMap<String, String>> reqUser = RequestLoadUser(limit_bottom,limit_top,mSearch.getText().toString());
 
                 Log.d("dataReq",reqUser.toString());
